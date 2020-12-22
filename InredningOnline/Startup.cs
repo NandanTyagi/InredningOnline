@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using InredningOnline.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,7 +24,34 @@ namespace InredningOnline
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Connection to database InMemory or SqlServer
+            // var USING_SQL = false;
+            // services.AddDbContext<AppDbContext>(options =>
+            // {
+            //     if (USING_SQL)
+            //     {
+            //         options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+
+            //     }
+            //     else
+            //     {
+            //         options.UseInMemoryDatabase("Sculptures");
+
+            //     }
+
+            // });
+
+            // Register my own services
+            services.AddScoped<MockProjectRepo>();
+            //Add MVC
             services.AddControllersWithViews();
+
+            // For auto update in "design in the browser" situation
+            services.AddRazorPages().AddRazorRuntimeCompilation();
+
+            // For shoppingcart feature
+            services.AddHttpContextAccessor();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,7 +69,7 @@ namespace InredningOnline
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthorization();
