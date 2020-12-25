@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace InredningOnline.Models
 {
@@ -6,23 +7,24 @@ namespace InredningOnline.Models
     {
         
         // Constructor
-        public Project(string name, User user, MockProjectRepo repo)
-        {
-            Name = name;
-            User = user;
-            repo.AllProjects.Add(this);
-        }
+        // public Project(string name, User user, MockProjectRepo repo)
+        // {
+        //     Name = name;
+        //     User = user;
+        //     repo.AllProjects.Add(this);
+        // }
 
         // Properties
         public string Name { get; set; }
         public User User { get; set; }
-        public List<Material> Materials = new List<Material>();
+        public IEnumerable<Material> Materials { get; set; }
+        // public List<Material> Materials = new List<Material>();
 
         // Methods
-        public void AddMaterial(Material material)
-        {
-            Materials.Add(material);
-        }
+        // public void AddMaterial(Material material)
+        // {
+        //     Materials.Add(material);
+        // }
 
         public decimal GetTotalCost()
         {

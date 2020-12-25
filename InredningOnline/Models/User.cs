@@ -1,18 +1,16 @@
 using System;
+using System.Collections.Generic;
 
 namespace InredningOnline.Models
 {
     public class User
     {
-        public User(MockUserRepo mockUserRepo, string name, string email, bool isAdmin)
+        public User(string name, string email, bool isAdmin)
         {
-            // this.Id = Guid.NewGuid();
-
-            mockUserRepo.SetUser(this);
-            this.Id = mockUserRepo.AllUsers.Count;
+            // this.Id = Guid.NewGuid(); 
             Name = name;
             Email = email;
-            IsAdmin = isAdmin;
+            IsAdmin = isAdmin;    
         }
         
         public int Id { get; private set; }
