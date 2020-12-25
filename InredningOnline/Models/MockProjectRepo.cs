@@ -8,19 +8,34 @@ namespace InredningOnline.Models
 
         public List<Project> AllProjects = new List<Project>();
 
-        public List<Project> GetProjectsList(User user)
+        // Get a list of a secific users projects
+        public List<Project> GetProjectsByUser(User user)
         {
-            throw new System.NotImplementedException();
+            var userProjects = this.AllProjects.FindAll(p => p.User == user);
+
+            return userProjects;
         }
 
         public decimal GetAverageCost()
         {
-            throw new System.NotImplementedException();
+            if (this.AllProjects.Count > 0)
+                return this.GetTotalCost() / this.AllProjects.Count;
+            else
+            {
+                return -1;
+            }
         }
 
         public decimal GetTotalCost()
         {
-            throw new System.NotImplementedException();
+            decimal total = 0;
+
+            foreach (var project in this.AllProjects)
+            {
+                total += project.GetTotalCost();
+            }
+
+            return total;
         }
     }
 }

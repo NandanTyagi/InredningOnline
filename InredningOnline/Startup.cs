@@ -43,6 +43,7 @@ namespace InredningOnline
 
             // Register my own services
             services.AddScoped<MockProjectRepo>();
+            services.AddScoped<MockUserRepo>();
             //Add MVC
             services.AddControllersWithViews();
 
