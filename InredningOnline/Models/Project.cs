@@ -5,26 +5,13 @@ namespace InredningOnline.Models
 {
     public class Project
     {
-        
-        // Constructor
-        // public Project(string name, User user, MockProjectRepo repo)
-        // {
-        //     Name = name;
-        //     User = user;
-        //     repo.AllProjects.Add(this);
-        // }
 
         // Properties
+        public int Id { get; set; }
         public string Name { get; set; }
+        public int UserId { get; set; }
         public User User { get; set; }
         public IEnumerable<Material> Materials { get; set; }
-        // public List<Material> Materials = new List<Material>();
-
-        // Methods
-        // public void AddMaterial(Material material)
-        // {
-        //     Materials.Add(material);
-        // }
 
         public decimal GetTotalCost()
         {
