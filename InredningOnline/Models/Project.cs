@@ -1,24 +1,28 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace InredningOnline.Models
 {
     public class Project
     {
 
-        public Project(string name, User user, MockProjectRepo repo)
-        {
-            Name = name;
-            User = user;
-            repo.AllProjects.Add(this);
-        }
-
+        // Properties
+        public int Id { get; set; }
         public string Name { get; set; }
+        public int UserId { get; set; }
         public User User { get; set; }
-        public List<Material> Materials = new List<Material>();
+        public IEnumerable<Material> Materials { get; set; }
 
         public decimal GetTotalCost()
         {
-            throw new System.NotImplementedException();
+            decimal total = 0;
+
+            foreach (var material in this.Materials)
+            {
+                total += material.Price * material.Amount;
+            }
+
+            return total;
         }
     }
 }

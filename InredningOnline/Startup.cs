@@ -6,6 +6,7 @@ using InredningOnline.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,24 +26,26 @@ namespace InredningOnline
         public void ConfigureServices(IServiceCollection services)
         {
             // Connection to database InMemory or SqlServer
-            // var USING_SQL = false;
-            // services.AddDbContext<AppDbContext>(options =>
-            // {
-            //     if (USING_SQL)
-            //     {
-            //         options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            var USING_SQL = false;
+            services.AddDbContext<AppDbContext>(options =>
+            {
+                if (USING_SQL)
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
 
-            //     }
-            //     else
-            //     {
-            //         options.UseInMemoryDatabase("Sculptures");
+                }
+                else
+                {
+                    options.UseInMemoryDatabase("Projects");
 
-            //     }
+                }
 
-            // });
+            });
 
             // Register my own services
-            services.AddScoped<MockProjectRepo>();
+            services.AddScoped<IProjectRepo, ProjectRepo>();
+            services.AddScoped<IUserRepo, UserRepo>();
+            services.AddScoped<IMaterialRepo, MaterialRepo>();
             //Add MVC
             services.AddControllersWithViews();
 

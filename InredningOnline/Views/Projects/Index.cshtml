@@ -1,0 +1,36 @@
+﻿@model ProjectsViewModel
+
+@{
+    ViewData["Title"] = "Projects";
+}
+<div class="fixer">
+    <div class="main-container">
+        <h1 class="text-center">All Projects</h1>
+        @foreach (var project in Model.Projects)
+        {
+            <div class="card m-5 p-2">
+                <div class="grid-header">
+                    <h4 class="text-center">Project name: @project.Name</h4>
+                    <h5 class="text-center">User Name: @project.User.Name</h5>
+                    <h6 class="text-center">User email: @project.User.Email</h6>
+                </div>
+                <div class="grid-container">
+                    <div class="grid-item header-item">Material</div>
+                    <div class="grid-item header-item">Amount</div>
+                    <div class="grid-item header-item">Price</div>
+                </div>
+                @foreach (var material in project.Materials)
+                {
+                    <div class="grid-container">
+                        <div class="grid-item">@material.Name</div>
+                        <div class="grid-item">@material.Amount</div>
+                        <div class="grid-item">@material.Price.ToString("c0")</div>
+                    </div>
+                }
+                <div class="total">Total cost: @project.GetTotalCost().ToString("c0")</div>
+            </div>
+        }
+        <div class="total">Total cost of all projects: @Model.GetTotalCost().ToString("c0")</div>
+        <div class="total">Average cost of all projects: @Model.GetAverageCost().ToString("c0")</div>
+    </div>
+</div>
