@@ -6,6 +6,6 @@ namespace InredningOnline.Models
     {
         IEnumerable<User> AllUsers { get; }
         User GetUserByName(string name);
-        void SetUser(string name, string email, bool isAdmin);
+        // void SetUser(string name, string email, bool isAdmin);
     }
 }

@@ -10,6 +10,7 @@ namespace InredningOnline.Models
         }
         public DbSet<Project> Projects { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Material> Materials { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -73,9 +74,9 @@ namespace InredningOnline.Models
             modelBuilder.Entity<Material>().HasData(new Material
             {
                 Id = 3,
-                ProjectId = 3,
+                ProjectId = 4,
                 Name = "Material3",
-                Price = 67,
+                Price = 67000,
                 Amount = 1,
                 Details = "N/A"
             });

@@ -9,10 +9,13 @@ namespace InredningOnline.Controllers
         private readonly IProjectRepo _projectRepo;
         private readonly IUserRepo _userRepo;
 
-        public ProjectsController(IProjectRepo projectRepo, IUserRepo userRepo)
+        private readonly IMaterialRepo _materialRepo;
+
+        public ProjectsController(IProjectRepo projectRepo, IUserRepo userRepo, IMaterialRepo materialRepo)
         {
             _projectRepo = projectRepo;
             _userRepo = userRepo;
+            _materialRepo = materialRepo;
         }
 
         public IActionResult Index()
@@ -20,6 +23,7 @@ namespace InredningOnline.Controllers
             ProjectsViewModel projectsViewModel = new ProjectsViewModel();
             projectsViewModel.Projects = _projectRepo.AllProjects;
             projectsViewModel.Users = _userRepo.AllUsers;
+            projectsViewModel.Materials = _materialRepo.AllMaterials;
             return View(projectsViewModel);
         }
     }

@@ -8,6 +8,7 @@ namespace InredningOnline.ViewModels
     {
         public IEnumerable<Project> Projects { get; set; }
         public IEnumerable<User> Users { get; set; }
+        public IEnumerable<Material> Materials { get; set; }
 
         public decimal GetAverageCost()
         {

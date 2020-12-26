@@ -43,8 +43,9 @@ namespace InredningOnline
             });
 
             // Register my own services
-            services.AddScoped<IProjectRepo, MockProjectRepo>();
-            services.AddScoped<IUserRepo, MockUserRepo>();
+            services.AddScoped<IProjectRepo, ProjectRepo>();
+            services.AddScoped<IUserRepo, UserRepo>();
+            services.AddScoped<IMaterialRepo, MaterialRepo>();
             //Add MVC
             services.AddControllersWithViews();
 
