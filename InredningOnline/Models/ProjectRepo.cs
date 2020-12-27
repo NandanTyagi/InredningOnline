@@ -26,7 +26,7 @@ namespace InredningOnline.Models
             decimal total = 0;
             foreach (var project in _appDbContext.Projects)
             {
-                total += project.GetTotalCost(); 
+                total += project.GetTotalCost();
             }
             return total / _appDbContext.Projects.ToList().Count;
 
@@ -40,6 +40,12 @@ namespace InredningOnline.Models
                 total += project.GetTotalCost();
             }
             return total;
+        }
+
+        public void SaveProject(Project project)
+        {
+            _appDbContext.Add(project);
+            _appDbContext.SaveChanges();
         }
     }
 }

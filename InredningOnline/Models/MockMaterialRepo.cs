@@ -23,5 +23,10 @@ namespace InredningOnline.Models
                 };
             }
         }
+
+        void IMaterialRepo.SaveMaterial(Material material)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

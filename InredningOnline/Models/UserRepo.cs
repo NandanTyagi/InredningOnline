@@ -25,9 +25,17 @@ namespace InredningOnline.Models
             return _appDbContext.Users.FirstOrDefault(u => u.Name == name);
         }
 
-        // public void SetUser(string name, string email, bool isAdmin)
-        // {
-        //     throw new System.NotImplementedException();
-        // }
+        public void SaveUser(string name, string email, bool isAdmin)
+        {
+            var user = new User()
+            {
+                
+                Name = name,
+                Email = email,
+                IsAdmin = isAdmin
+            };
+            _appDbContext.Add(user);
+            _appDbContext.SaveChanges();
+        }
     }
 }

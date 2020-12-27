@@ -7,5 +7,6 @@ namespace InredningOnline.Models
         IEnumerable<Project> AllProjects { get;}
         decimal GetTotalCost();
         decimal GetAverageCost();
+        void SaveProject(Project project);
     }
 }

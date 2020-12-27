@@ -83,7 +83,7 @@ namespace InredningOnline.Models
             modelBuilder.Entity<Material>().HasData(new Material
             {
                 Id = 4,
-                ProjectId = 2,
+                ProjectId = 3,
                 Name = "Material4",
                 Price = 77,
                 Amount = 2,

@@ -1,0 +1,79 @@
+@model NewProjectViewModel
+
+@{
+    ViewData["Title"] = "Home";
+}
+<div class="fixer">
+    <div class="main-container">
+        <h1 class="text-center">Ballong AB</h1>
+
+
+        <div class="card m-5 p-2">
+            <div class="grid-header">
+                <h4 class="text-center">Welcome @Model.Users.FirstOrDefault(u => u.Id == 1).Name</h4>
+
+                <form asp-action="CreateProject" method="post">
+                    <h5 class="text-center">Create Project</h5>
+                    <div class="input-container">
+                        <div class="inputs">
+                            <label asp-for="Project.Name"></label>
+                            <input asp-for="Project.Name" class="text-center " type="text" placeholder="Project name"
+                                tabindex="0">
+                            <span asp-validation-for="Project.Name"></span>
+                        </div>
+                        @* <div class="inputs">
+                            <input asp-for="Project.Id" class="text-center " type="hidden"
+                                value="@(@Model.Projects.ToList().Count + 1)" placeholder="Project Id" tabindex="0">
+                        </div> *@
+                        <div class="inputs">
+                            <label asp-for="Project.UserId"></label>
+                            <input asp-for="Project.UserId" class="text-center " type="text" value="1"
+                                placeholder="User id" tabindex="0">
+                        </div>
+                        
+                        <hr>
+                            <div class="text-center pt-2"><strong>Add Material</strong></div>
+                            <hr>
+                            @* <div class="inputs">
+                                <input asp-for="Material.Id" class="text-center " type="hidden"
+                                    value="@Model.Materials.ToList().Count" placeholder="Material Id" tabindex="0">
+                            </div> *@
+                            <div class="inputs">
+                                <label asp-for="Material.ProjectId"></label>
+                                <input asp-for="Material.ProjectId" class="text-center " type="text" value=""
+                                    placeholder="Project Id" tabindex="0">
+                            </div>
+                            <div class="inputs">
+                                <label asp-for="Material.Name"></label>
+                                <input asp-for="Material.Name" class="text-center " type="text"
+                                    placeholder="Material name" tabindex="0">
+                            </div>
+                            <div class="inputs">
+                                <label asp-for="Material.Amount"></label>
+                                <input asp-for="Material.Amount" class="text-center " type="text"
+                                    placeholder="Material amount" tabindex="0">
+                            </div>
+                            <div class="inputs">
+                                <label asp-for="Material.Price"></label>
+                                <input asp-for="Material.Price" class="text-center " type="text"
+                                    placeholder="Material price" tabindex="0">
+                            </div>
+                            <div class="inputs">
+                                <label asp-for="Material.Details"></label>
+                                <input asp-for="Material.Details" class="text-center " type="text"
+                                    placeholder="Material details" tabindex="0">
+                            </div>
+                        <hr>
+                        <div class="btn-container d-flex ">
+                            <div tabindex="0"> <input type="submit" class="btn" value="Create"> </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="total">Press create to add materials to the project</div>
+    </div>
+</div>
