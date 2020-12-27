@@ -1,22 +1,24 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace InredningOnline.Models
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<IdentityUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
             this.Database.EnsureCreated();
         }
         public DbSet<Project> Projects { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> Designers { get; set; }
         public DbSet<Material> Materials { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            // Seed users
+            // Seed Designers
             modelBuilder.Entity<User>().HasData(new User { Id = 1, Name = "Nandan", Email = "me@nandan.com", IsAdmin = true });
             modelBuilder.Entity<User>().HasData(new User { Id = 2, Name = "Hadis", Email = "me@hadis.com", IsAdmin = false });
             modelBuilder.Entity<User>().HasData(new User { Id = 3, Name = "Ali", Email = "me@ali.com", IsAdmin = false });

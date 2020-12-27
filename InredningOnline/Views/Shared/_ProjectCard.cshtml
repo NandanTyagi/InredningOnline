@@ -1,0 +1,27 @@
+@model Project
+
+<div class="project-holder">
+                <div class="grid-header">
+                    <h4 class="text-center">@Model.Name</h4>
+                    <h5 class="text-center">Project Id: @Model.Id</h5>
+                    <h6 class="text-center">User: @Model.User.Name</h6>
+                    <hr>
+                </div>
+                <div class="grid-container">
+                    <div class="grid-item header-item">Material</div>
+                    <div class="grid-item header-item">Amount</div>
+                    <div class="grid-item header-item">Price</div>
+                    <div class="grid-item header-item">Details</div>
+                </div>
+                @foreach (var material in Model.Materials)
+                {
+                    <div class="grid-container">
+                        <div class="grid-item">@material.Name</div>
+                        <div class="grid-item">@material.Amount</div>
+                        <div class="grid-item">@material.Price.ToString("c0")</div>
+                        <div class="grid-item">@material.Details</div>
+                    </div>
+                }
+                <hr>
+                <div class="total">Total: @Model.GetTotalCost().ToString("c0")</div>
+            </div>

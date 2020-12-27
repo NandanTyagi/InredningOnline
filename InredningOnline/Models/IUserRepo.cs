@@ -4,7 +4,7 @@ namespace InredningOnline.Models
 {
     public interface IUserRepo
     {
-        IEnumerable<User> AllUsers { get; }
+        IEnumerable<User> AllDesigners { get; }
         User GetUserByName(string name);
         // void SetUser(string name, string email, bool isAdmin);
     }

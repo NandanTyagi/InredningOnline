@@ -1,4 +1,4 @@
-﻿@model ProjectsViewModel
+@model MyProjectsViewModel
 
 @{
     ViewData["Title"] = "Projects";
@@ -7,12 +7,12 @@
     <div class="main-container">
         <h1 class="text-center">Ballong AB</h1>
         <h2 class="text-center">All Project</h2>
-        @foreach (var project in Model.Projects)
+        @foreach (var project in Model.Projects.Where(u => u.UserId == 1))
         {
             <partial name="_ProjectCard" model="project" />
         }
         <hr>
-        <div class="total">Total all projects: @Model.GetTotalCost().ToString("c0")</div>
-        <div class="total">Average project cost: @Model.GetAverageCost().ToString("c0")</div>
+        <div class="total">Total all projects: @Model.GetTotalCost(1).ToString("c0")</div>
+        <div class="total">Average project cost: @Model.GetAverageCost(1).ToString("c0")</div>
     </div>
 </div>

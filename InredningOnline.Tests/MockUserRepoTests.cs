@@ -6,7 +6,7 @@
 //     public class MockUserRepoTests
 //     {
 //         [Fact]
-//         public void UserShouldBeCreatedWithCorrectProperties()
+//         public void DesignershouldBeCreatedWithCorrectProperties()
 //         {
 //             var userRepo = new MockUserRepo();
 
@@ -19,14 +19,14 @@
 
 //             var expectedUserEmail1 = "me@nandan.com";
 //             var expectedUserEmail2 = "me@hadis.com";
-            
+
 
 //             var actualUserName1 = user1.Name;
 //             var actualUserName2 = user2.Name;
 
 //             var actualUserEmail1 = user1.Email;
 //             var actualUserEmail2 = user2.Email;
-            
+
 
 //             Assert.Equal(expectedUserName1, actualUserName1);
 //             Assert.Equal(expectedUserName2, actualUserName2);
@@ -38,33 +38,33 @@
 //             Assert.False(user2.IsAdmin);
 
 //         }
-        
+
 //         [Fact]
-//         public void UserShouldBeCreatedWithUniqueIds()
+//         public void DesignershouldBeCreatedWithUniqueIds()
 //         {
 //             var userRepo = new MockUserRepo();
 
 //             var user1 = new User(userRepo, "Nandan", "me@nandan.com", true);
 
 //             var user2 = new User(userRepo, "Hadis", "me@hadis.com", false);
-            
-            
+
+
 //             Assert.NotEqual(user1.Id, user2.Id);
 
 //         }
-        
+
 //         [Fact]
-//         public void MockUserRepoShouldContainUsers()
+//         public void MockUserRepoShouldContainDesigners()
 //         {
 //             var userRepo = new MockUserRepo();
 
 //             var user1 = new User(userRepo, "Nandan", "me@nandan.com", true);
 
 //             var user2 = new User(userRepo, "Hadis", "me@hadis.com", false);
-            
-            
-//             Assert.NotEmpty(userRepo.AllUsers);
-//             Assert.Equal(2, userRepo.AllUsers.Count);
+
+
+//             Assert.NotEmpty(userRepo.AllDesigners);
+//             Assert.Equal(2, userRepo.AllDesigners.Count);
 
 //         }
 //     }

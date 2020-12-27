@@ -22,7 +22,7 @@ namespace InredningOnline.Controllers
         {
             ProjectsViewModel projectsViewModel = new ProjectsViewModel();
             projectsViewModel.Projects = _projectRepo.AllProjects;
-            projectsViewModel.Users = _userRepo.AllUsers;
+            projectsViewModel.Designers = _userRepo.AllDesigners;
             projectsViewModel.Materials = _materialRepo.AllMaterials;
             return View(projectsViewModel);
         }

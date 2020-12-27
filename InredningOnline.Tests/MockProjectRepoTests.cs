@@ -12,14 +12,14 @@
 //             var userRepo = new MockUserRepo();
 
 //             var user1 = new User("Nandan","me@nandan.com",true);
-            
+
 //             var user2 = new User("Hadis","me@hadis.com",false);
 
 //             var testProject = new Project("Test Project", user1, repo1);
 //             testProject.AddMaterial(new Material { Name = "Table", Price = 20, Amount = 2, Details = "N/A" });
 //             testProject.AddMaterial(new Material { Name = "Chair", Price = 10, Amount = 2, Details = "N/A" });
 //             testProject.AddMaterial(new Material { Name = "Phone", Price = 50, Amount = 5, Details = "N/A" });
-            
+
 //             var testProject1 = new Project("Test Project1", user2, repo1);
 //             testProject1.AddMaterial(new Material { Name = "Table1", Price = 200, Amount = 20, Details = "N/A" });
 //             testProject1.AddMaterial(new Material { Name = "Chair1", Price = 100, Amount = 25, Details = "N/A" });
@@ -81,15 +81,15 @@
 //             testProject1.AddMaterial(new Material { Name = "Phone1", Price = 500, Amount = 56, Details = "N/A" });
 
 //             var expectedAverage = 17405;
-           
+
 //             var actualAverage = repo1.GetAverageCost();
-                        
+
 //             Assert.Equal(expectedAverage, actualAverage);
 
 
 //         }
 //         [Fact]
-//         void CorrectUsersShouldBeFiltered()
+//         void CorrectDesignersShouldBeFiltered()
 //         {
 //             var repo1 = new MockProjectRepo();
 //             var userRepo = new MockUserRepo();
@@ -120,7 +120,7 @@
 
 //             var actualUserProjectListCount = repo1.GetProjectsByUser(user2).Count;
 //             var actualUserName = repo1.GetProjectsByUser(user2)[0].User.Name;
-                   
+
 //             Assert.Equal(expectedUserProjectListCount, actualUserProjectListCount);
 //             Assert.Equal(expectedUserName, actualUserName);
 //         }

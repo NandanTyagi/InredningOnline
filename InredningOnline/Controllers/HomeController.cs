@@ -20,7 +20,7 @@ namespace InredningOnline.Controllers
         {
             HomeViewModel homeViewModel = new HomeViewModel();
             homeViewModel.Projects = _projectRepo.AllProjects;
-            homeViewModel.Users = _userRepo.AllUsers;
+            homeViewModel.Designers = _userRepo.AllDesigners;
             homeViewModel.Materials = _materialRepo.AllMaterials;
             return View(homeViewModel);
         }

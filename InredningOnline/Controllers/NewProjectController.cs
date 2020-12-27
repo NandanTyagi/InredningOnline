@@ -21,7 +21,7 @@ namespace InredningOnline.Controllers
         {
             NewProjectViewModel newProjectViewModel = new NewProjectViewModel();
             newProjectViewModel.Projects = _projectRepo.AllProjects;
-            newProjectViewModel.Users = _userRepo.AllUsers;
+            newProjectViewModel.Designers = _userRepo.AllDesigners;
             newProjectViewModel.Materials = _materialRepo.AllMaterials;
             return View(newProjectViewModel);
         }
@@ -30,9 +30,9 @@ namespace InredningOnline.Controllers
         {
             NewProjectViewModel newProjectViewModel = new NewProjectViewModel();
             newProjectViewModel.Projects = _projectRepo.AllProjects;
-            newProjectViewModel.Users = _userRepo.AllUsers;
+            newProjectViewModel.Designers = _userRepo.AllDesigners;
             newProjectViewModel.Materials = _materialRepo.AllMaterials;
-            
+
 
 
             if (ModelState.IsValid)
@@ -48,7 +48,7 @@ namespace InredningOnline.Controllers
         {
             NewProjectViewModel newProjectViewModel = new NewProjectViewModel();
             newProjectViewModel.Projects = _projectRepo.AllProjects;
-            newProjectViewModel.Users = _userRepo.AllUsers;
+            newProjectViewModel.Designers = _userRepo.AllDesigners;
             newProjectViewModel.Materials = _materialRepo.AllMaterials;
             return View(newProjectViewModel);
         }

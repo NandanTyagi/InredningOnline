@@ -12,24 +12,24 @@ namespace InredningOnline.Models
             _appDbContext = appDbContext;
         }
 
-        public IEnumerable<User> AllUsers
+        public IEnumerable<User> AllDesigners
         {
             get
             {
-                return _appDbContext.Users;
+                return _appDbContext.Designers;
             }
         }
 
         public User GetUserByName(string name)
         {
-            return _appDbContext.Users.FirstOrDefault(u => u.Name == name);
+            return _appDbContext.Designers.FirstOrDefault(u => u.Name == name);
         }
 
         public void SaveUser(string name, string email, bool isAdmin)
         {
             var user = new User()
             {
-                
+
                 Name = name,
                 Email = email,
                 IsAdmin = isAdmin
