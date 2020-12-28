@@ -160,3 +160,23 @@ input:hover{
 hr {
   color: rgb(8, 8, 8);
 }
+
+.aside {
+  position: absolute;
+  right: 20px;
+}
+.lift {
+  margin-bottom: 5px;
+  font-size: small;
+  line-height: 15px;
+}
+header {
+  position: sticky;
+  top: 0;
+}
+.billboard {
+  position: fixed;
+  right: 20px;
+  top: 70px;
+  border: 1px solid lightgray;
+}

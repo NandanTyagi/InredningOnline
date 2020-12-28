@@ -7,7 +7,7 @@ namespace InredningOnline.ViewModels
     public class MyProjectsViewModel
     {
         public IEnumerable<Project> Projects { get; set; }
-        public IEnumerable<User> Designers { get; set; }
+        public IEnumerable<Designer> Designers { get; set; }
         public IEnumerable<Material> Materials { get; set; }
         public Project Project { get; set; }
         public Material Material { get; set; }
@@ -21,10 +21,10 @@ namespace InredningOnline.ViewModels
                 return -1;
             }
         }
-        public decimal GetAverageCost(int userId)
+        public decimal GetAverageCost(int designerId)
         {
             if (this.Projects.ToList().Count > 0)
-                return this.GetTotalCost(userId) / this.Projects.ToList().FindAll(p => p.UserId == userId).Count;
+                return this.GetTotalCost(designerId) / this.Projects.ToList().FindAll(p => p.DesignerId == designerId).Count;
             else
             {
                 return -1;
@@ -40,10 +40,10 @@ namespace InredningOnline.ViewModels
             }
             return total;
         }
-        public decimal GetTotalCost(int userId)
+        public decimal GetTotalCost(int designerId)
         {
             decimal total = 0;
-            foreach (var project in this.Projects.Where(p => p.UserId == userId))
+            foreach (var project in this.Projects.Where(p => p.DesignerId == designerId))
             {
                 total += project.GetTotalCost();
             }

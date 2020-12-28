@@ -3,16 +3,16 @@ using System.Linq;
 
 namespace InredningOnline.Models
 {
-    public class UserRepo : IUserRepo
+    public class DesignerRepo : IDesignerRepo
     {
         AppDbContext _appDbContext;
 
-        public UserRepo(AppDbContext appDbContext)
+        public DesignerRepo(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
         }
 
-        public IEnumerable<User> AllDesigners
+        public IEnumerable<Designer> AllDesigners
         {
             get
             {
@@ -20,21 +20,21 @@ namespace InredningOnline.Models
             }
         }
 
-        public User GetUserByName(string name)
+        public Designer GetDesignerByName(string name)
         {
             return _appDbContext.Designers.FirstOrDefault(u => u.Name == name);
         }
 
-        public void SaveUser(string name, string email, bool isAdmin)
+        public void SaveDesigner(string name, string email, bool isAdmin)
         {
-            var user = new User()
+            var designer = new Designer()
             {
 
                 Name = name,
                 Email = email,
                 IsAdmin = isAdmin
             };
-            _appDbContext.Add(user);
+            _appDbContext.Add(designer);
             _appDbContext.SaveChanges();
         }
     }

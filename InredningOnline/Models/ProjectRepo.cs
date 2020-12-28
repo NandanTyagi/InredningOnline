@@ -17,7 +17,7 @@ namespace InredningOnline.Models
         {
             get
             {
-                return _appDbContext.Projects.Include(m => m.Materials).Include(u => u.User);
+                return _appDbContext.Projects.Include(m => m.Materials).Include(u => u.Designer);
             }
         }
 

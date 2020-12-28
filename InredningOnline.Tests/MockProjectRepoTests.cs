@@ -9,24 +9,24 @@
 //         public void ProjectAndMaterialsShouldBeCreatedAndAddedToMockRepo()
 //         {
 //             var repo1 = new MockProjectRepo();
-//             var userRepo = new MockUserRepo();
+//             var designerRepo = new MockDesignerRepo();
 
-//             var user1 = new User("Nandan","me@nandan.com",true);
+//             var designer1 = new Designer("Nandan","me@nandan.com",true);
 
-//             var user2 = new User("Hadis","me@hadis.com",false);
+//             var designer2 = new Designer("Hadis","me@hadis.com",false);
 
-//             var testProject = new Project("Test Project", user1, repo1);
+//             var testProject = new Project("Test Project", designer1, repo1);
 //             testProject.AddMaterial(new Material { Name = "Table", Price = 20, Amount = 2, Details = "N/A" });
 //             testProject.AddMaterial(new Material { Name = "Chair", Price = 10, Amount = 2, Details = "N/A" });
 //             testProject.AddMaterial(new Material { Name = "Phone", Price = 50, Amount = 5, Details = "N/A" });
 
-//             var testProject1 = new Project("Test Project1", user2, repo1);
+//             var testProject1 = new Project("Test Project1", designer2, repo1);
 //             testProject1.AddMaterial(new Material { Name = "Table1", Price = 200, Amount = 20, Details = "N/A" });
 //             testProject1.AddMaterial(new Material { Name = "Chair1", Price = 100, Amount = 25, Details = "N/A" });
 //             testProject1.AddMaterial(new Material { Name = "Phone1", Price = 500, Amount = 56, Details = "N/A" });
 
 //             var expectedProjectName = "Test Project";
-//             var expectedUserName = "Nandan";
+//             var expectedDesignerName = "Nandan";
 //             var expectedMaterialName = "Phone";
 //             var expectedMaterialCount = 3;
 //             var expectedRepoCount = 2;
@@ -38,7 +38,7 @@
 
 
 //             var actualProjectName = testProject.Name;
-//             var actualUserName = user1.Name;
+//             var actualDesignerName = designer1.Name;
 //             var actualMaterialName = testProject.Materials[2].Name;
 //             var actualMaterialCount = testProject.Materials.Count;
 //             var actualRepoCount = repo1.AllProjects.Count;
@@ -48,7 +48,7 @@
 //             var actualTotalCostOfAllProjects = repo1.GetTotalCost();
 
 //             Assert.Equal(expectedProjectName, actualProjectName);
-//             Assert.Equal(expectedUserName, actualUserName);
+//             Assert.Equal(expectedDesignerName, actualDesignerName);
 //             Assert.Equal(expectedMaterialName, actualMaterialName);
 //             Assert.Equal(expectedMaterialCount, actualMaterialCount);
 //             Assert.Equal(expectedRepoCount, actualRepoCount);
@@ -64,18 +64,18 @@
 //         void CorrectAverageShouldBeCalcualated()
 //         {
 //             var repo1 = new MockProjectRepo();
-//             var userRepo = new MockUserRepo();
+//             var designerRepo = new MockDesignerRepo();
 
-//             var user1 = new User(userRepo, "Nandan", "me@nandan.com", true);
+//             var designer1 = new Designer(designerRepo, "Nandan", "me@nandan.com", true);
 
-//             var user2 = new User(userRepo, "Hadis", "me@hadis.com", false);
+//             var designer2 = new Designer(designerRepo, "Hadis", "me@hadis.com", false);
 
-//             var testProject = new Project("Test Project", user1, repo1);
+//             var testProject = new Project("Test Project", designer1, repo1);
 //             testProject.AddMaterial(new Material { Name = "Table", Price = 20, Amount = 2, Details = "N/A" });
 //             testProject.AddMaterial(new Material { Name = "Chair", Price = 10, Amount = 2, Details = "N/A" });
 //             testProject.AddMaterial(new Material { Name = "Phone", Price = 50, Amount = 5, Details = "N/A" });
 
-//             var testProject1 = new Project("Test Project1", user2, repo1);
+//             var testProject1 = new Project("Test Project1", designer2, repo1);
 //             testProject1.AddMaterial(new Material { Name = "Table1", Price = 200, Amount = 20, Details = "N/A" });
 //             testProject1.AddMaterial(new Material { Name = "Chair1", Price = 100, Amount = 25, Details = "N/A" });
 //             testProject1.AddMaterial(new Material { Name = "Phone1", Price = 500, Amount = 56, Details = "N/A" });
@@ -92,37 +92,37 @@
 //         void CorrectDesignersShouldBeFiltered()
 //         {
 //             var repo1 = new MockProjectRepo();
-//             var userRepo = new MockUserRepo();
+//             var designerRepo = new MockDesignerRepo();
 
-//             var user1 = new User(userRepo, "Nandan", "me@nandan.com", true);
+//             var designer1 = new Designer(designerRepo, "Nandan", "me@nandan.com", true);
 
-//             var user2 = new User(userRepo, "Hadis", "me@hadis.com", false);
+//             var designer2 = new Designer(designerRepo, "Hadis", "me@hadis.com", false);
 
-//             var user3 = new User(userRepo, "Ali", "me@ali.com", false);
+//             var designer3 = new Designer(designerRepo, "Ali", "me@ali.com", false);
 
-//             var testProject1 = new Project("Test Project", user1, repo1);
+//             var testProject1 = new Project("Test Project", designer1, repo1);
 //             testProject1.AddMaterial(new Material { Name = "Table", Price = 20, Amount = 2, Details = "N/A" });
 //             testProject1.AddMaterial(new Material { Name = "Chair", Price = 10, Amount = 2, Details = "N/A" });
 //             testProject1.AddMaterial(new Material { Name = "Phone", Price = 50, Amount = 5, Details = "N/A" });
 
-//             var testProject2 = new Project("Test Project1", user2, repo1);
+//             var testProject2 = new Project("Test Project1", designer2, repo1);
 //             testProject2.AddMaterial(new Material { Name = "Table1", Price = 200, Amount = 20, Details = "N/A" });
 //             testProject2.AddMaterial(new Material { Name = "Chair1", Price = 100, Amount = 25, Details = "N/A" });
 //             testProject2.AddMaterial(new Material { Name = "Phone1", Price = 500, Amount = 56, Details = "N/A" });
 
-//             var testProject3 = new Project("Test Project1", user2, repo1);
+//             var testProject3 = new Project("Test Project1", designer2, repo1);
 //             testProject3.AddMaterial(new Material { Name = "Table1", Price = 200, Amount = 20, Details = "N/A" });
 //             testProject3.AddMaterial(new Material { Name = "Chair1", Price = 100, Amount = 25, Details = "N/A" });
 //             testProject3.AddMaterial(new Material { Name = "Phone1", Price = 500, Amount = 56, Details = "N/A" });
 
-//             var expectedUserProjectListCount = 2;
-//             var expectedUserName = "Hadis";
+//             var expectedDesignerProjectListCount = 2;
+//             var expectedDesignerName = "Hadis";
 
-//             var actualUserProjectListCount = repo1.GetProjectsByUser(user2).Count;
-//             var actualUserName = repo1.GetProjectsByUser(user2)[0].User.Name;
+//             var actualDesignerProjectListCount = repo1.GetProjectsByDesigner(designer2).Count;
+//             var actualDesignerName = repo1.GetProjectsByDesigner(designer2)[0].Designer.Name;
 
-//             Assert.Equal(expectedUserProjectListCount, actualUserProjectListCount);
-//             Assert.Equal(expectedUserName, actualUserName);
+//             Assert.Equal(expectedDesignerProjectListCount, actualDesignerProjectListCount);
+//             Assert.Equal(expectedDesignerName, actualDesignerName);
 //         }
 
 

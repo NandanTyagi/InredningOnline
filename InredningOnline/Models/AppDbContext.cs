@@ -11,7 +11,7 @@ namespace InredningOnline.Models
             this.Database.EnsureCreated();
         }
         public DbSet<Project> Projects { get; set; }
-        public DbSet<User> Designers { get; set; }
+        public DbSet<Designer> Designers { get; set; }
         public DbSet<Material> Materials { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -19,9 +19,9 @@ namespace InredningOnline.Models
             base.OnModelCreating(modelBuilder);
 
             // Seed Designers
-            modelBuilder.Entity<User>().HasData(new User { Id = 1, Name = "Nandan", Email = "me@nandan.com", IsAdmin = true });
-            modelBuilder.Entity<User>().HasData(new User { Id = 2, Name = "Hadis", Email = "me@hadis.com", IsAdmin = false });
-            modelBuilder.Entity<User>().HasData(new User { Id = 3, Name = "Ali", Email = "me@ali.com", IsAdmin = false });
+            modelBuilder.Entity<Designer>().HasData(new Designer { Id = 1, Name = "Nandan", Email = "me@nandan.com", IsAdmin = true });
+            modelBuilder.Entity<Designer>().HasData(new Designer { Id = 2, Name = "Hadis", Email = "me@hadis.com", IsAdmin = false });
+            modelBuilder.Entity<Designer>().HasData(new Designer { Id = 3, Name = "Ali", Email = "me@ali.com", IsAdmin = false });
 
 
             // Seed Projects
@@ -29,28 +29,28 @@ namespace InredningOnline.Models
             {
                 Id = 1,
                 Name = "Project1",
-                UserId = 1,
+                DesignerId = 1,
                 // Materials = (System.Collections.Generic.IEnumerable<Material>)modelBuilder.Entity<Material>().HasData(new Material { ProjectId = 1, Name = "Material1", Price = 25, Amount = 1, Details = "N/A" })
             });
             modelBuilder.Entity<Project>().HasData(new Project
             {
                 Id = 2,
                 Name = "Project2",
-                UserId = 2,
+                DesignerId = 2,
                 // Materials = (System.Collections.Generic.IEnumerable<Material>)modelBuilder.Entity<Material>().HasData(new Material { ProjectId = 1, Name = "Material1", Price = 25, Amount = 1, Details = "N/A" })
             });
             modelBuilder.Entity<Project>().HasData(new Project
             {
                 Id = 3,
                 Name = "Project3",
-                UserId = 3,
+                DesignerId = 3,
                 // Materials = (System.Collections.Generic.IEnumerable<Material>)modelBuilder.Entity<Material>().HasData(new Material { ProjectId = 1, Name = "Material1", Price = 25, Amount = 1, Details = "N/A" })
             });
             modelBuilder.Entity<Project>().HasData(new Project
             {
                 Id = 4,
                 Name = "Project4",
-                UserId = 2,
+                DesignerId = 2,
                 // Materials = (System.Collections.Generic.IEnumerable<Material>)modelBuilder.Entity<Material>().HasData(new Material { ProjectId = 1, Name = "Material1", Price = 25, Amount = 1, Details = "N/A" })
             });
 

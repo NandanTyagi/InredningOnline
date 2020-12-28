@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace InredningOnline.Models
 {
-    public class User
+    public class Designer
     {
         public int Id { get; set; }
         public string Name { get; set; }

@@ -1,27 +1,29 @@
 using System.Linq;
 using InredningOnline.Models;
 using InredningOnline.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InredningOnline.Controllers
 {
+    [Authorize]
     public class NewProjectController : Controller
     {
         private readonly IProjectRepo _projectRepo;
-        private readonly IUserRepo _userRepo;
+        private readonly IDesignerRepo _designerRepo;
         private readonly IMaterialRepo _materialRepo;
 
-        public NewProjectController(IProjectRepo projectRepo, IUserRepo userRepo, IMaterialRepo materialRepo)
+        public NewProjectController(IProjectRepo projectRepo, IDesignerRepo designerRepo, IMaterialRepo materialRepo)
         {
             _projectRepo = projectRepo;
-            _userRepo = userRepo;
+            _designerRepo = designerRepo;
             _materialRepo = materialRepo;
         }
         public IActionResult CreateProject()
         {
             NewProjectViewModel newProjectViewModel = new NewProjectViewModel();
             newProjectViewModel.Projects = _projectRepo.AllProjects;
-            newProjectViewModel.Designers = _userRepo.AllDesigners;
+            newProjectViewModel.Designers = _designerRepo.AllDesigners;
             newProjectViewModel.Materials = _materialRepo.AllMaterials;
             return View(newProjectViewModel);
         }
@@ -30,7 +32,7 @@ namespace InredningOnline.Controllers
         {
             NewProjectViewModel newProjectViewModel = new NewProjectViewModel();
             newProjectViewModel.Projects = _projectRepo.AllProjects;
-            newProjectViewModel.Designers = _userRepo.AllDesigners;
+            newProjectViewModel.Designers = _designerRepo.AllDesigners;
             newProjectViewModel.Materials = _materialRepo.AllMaterials;
 
 
@@ -48,7 +50,7 @@ namespace InredningOnline.Controllers
         {
             NewProjectViewModel newProjectViewModel = new NewProjectViewModel();
             newProjectViewModel.Projects = _projectRepo.AllProjects;
-            newProjectViewModel.Designers = _userRepo.AllDesigners;
+            newProjectViewModel.Designers = _designerRepo.AllDesigners;
             newProjectViewModel.Materials = _materialRepo.AllMaterials;
             return View(newProjectViewModel);
         }

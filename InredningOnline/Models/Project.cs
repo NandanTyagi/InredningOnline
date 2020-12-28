@@ -12,9 +12,9 @@ namespace InredningOnline.Models
         [Required(ErrorMessage = "Enter name of project")]
         public string Name { get; set; }
         [Required]
-        [Display(Name = "User Id")]
-        public int UserId { get; set; }
-        public User User { get; set; }
+        [Display(Name = "Designer Id")]
+        public int DesignerId { get; set; }
+        public Designer Designer { get; set; }
         public IEnumerable<Material> Materials { get; set; }
 
         public decimal GetTotalCost()

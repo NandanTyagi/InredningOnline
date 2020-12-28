@@ -3,68 +3,68 @@
 
 // namespace InredningOnline.Tests
 // {
-//     public class MockUserRepoTests
+//     public class MockDesignerRepoTests
 //     {
 //         [Fact]
 //         public void DesignershouldBeCreatedWithCorrectProperties()
 //         {
-//             var userRepo = new MockUserRepo();
+//             var designerRepo = new MockDesignerRepo();
 
-//             var user1 = new User(userRepo, "Nandan", "me@nandan.com", true);
+//             var designer1 = new Designer(designerRepo, "Nandan", "me@nandan.com", true);
 
-//             var user2 = new User(userRepo, "Hadis", "me@hadis.com", false);
+//             var designer2 = new Designer(designerRepo, "Hadis", "me@hadis.com", false);
 
-//             var expectedUserName1 = "Nandan";
-//             var expectedUserName2 = "Hadis";
+//             var expectedDesignerName1 = "Nandan";
+//             var expectedDesignerName2 = "Hadis";
 
-//             var expectedUserEmail1 = "me@nandan.com";
-//             var expectedUserEmail2 = "me@hadis.com";
-
-
-//             var actualUserName1 = user1.Name;
-//             var actualUserName2 = user2.Name;
-
-//             var actualUserEmail1 = user1.Email;
-//             var actualUserEmail2 = user2.Email;
+//             var expectedDesignerEmail1 = "me@nandan.com";
+//             var expectedDesignerEmail2 = "me@hadis.com";
 
 
-//             Assert.Equal(expectedUserName1, actualUserName1);
-//             Assert.Equal(expectedUserName2, actualUserName2);
+//             var actualDesignerName1 = designer1.Name;
+//             var actualDesignerName2 = designer2.Name;
 
-//             Assert.Equal(expectedUserEmail1, actualUserEmail1);
-//             Assert.Equal(expectedUserEmail2, actualUserEmail2);
+//             var actualDesignerEmail1 = designer1.Email;
+//             var actualDesignerEmail2 = designer2.Email;
 
-//             Assert.True(user1.IsAdmin);
-//             Assert.False(user2.IsAdmin);
+
+//             Assert.Equal(expectedDesignerName1, actualDesignerName1);
+//             Assert.Equal(expectedDesignerName2, actualDesignerName2);
+
+//             Assert.Equal(expectedDesignerEmail1, actualDesignerEmail1);
+//             Assert.Equal(expectedDesignerEmail2, actualDesignerEmail2);
+
+//             Assert.True(designer1.IsAdmin);
+//             Assert.False(designer2.IsAdmin);
 
 //         }
 
 //         [Fact]
 //         public void DesignershouldBeCreatedWithUniqueIds()
 //         {
-//             var userRepo = new MockUserRepo();
+//             var designerRepo = new MockDesignerRepo();
 
-//             var user1 = new User(userRepo, "Nandan", "me@nandan.com", true);
+//             var designer1 = new Designer(designerRepo, "Nandan", "me@nandan.com", true);
 
-//             var user2 = new User(userRepo, "Hadis", "me@hadis.com", false);
+//             var designer2 = new Designer(designerRepo, "Hadis", "me@hadis.com", false);
 
 
-//             Assert.NotEqual(user1.Id, user2.Id);
+//             Assert.NotEqual(designer1.Id, designer2.Id);
 
 //         }
 
 //         [Fact]
-//         public void MockUserRepoShouldContainDesigners()
+//         public void MockDesignerRepoShouldContainDesigners()
 //         {
-//             var userRepo = new MockUserRepo();
+//             var designerRepo = new MockDesignerRepo();
 
-//             var user1 = new User(userRepo, "Nandan", "me@nandan.com", true);
+//             var designer1 = new Designer(designerRepo, "Nandan", "me@nandan.com", true);
 
-//             var user2 = new User(userRepo, "Hadis", "me@hadis.com", false);
+//             var designer2 = new Designer(designerRepo, "Hadis", "me@hadis.com", false);
 
 
-//             Assert.NotEmpty(userRepo.AllDesigners);
-//             Assert.Equal(2, userRepo.AllDesigners.Count);
+//             Assert.NotEmpty(designerRepo.AllDesigners);
+//             Assert.Equal(2, designerRepo.AllDesigners.Count);
 
 //         }
 //     }

@@ -2,10 +2,10 @@ using System.Collections.Generic;
 
 namespace InredningOnline.Models
 {
-    public interface IUserRepo
+    public interface IDesignerRepo
     {
-        IEnumerable<User> AllDesigners { get; }
-        User GetUserByName(string name);
-        // void SetUser(string name, string email, bool isAdmin);
+        IEnumerable<Designer> AllDesigners { get; }
+        Designer GetDesignerByName(string name);
+        // void SetDesigner(string name, string email, bool isAdmin);
     }
 }

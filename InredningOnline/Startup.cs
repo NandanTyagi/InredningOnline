@@ -6,6 +6,7 @@ using InredningOnline.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,7 +27,7 @@ namespace InredningOnline
         public void ConfigureServices(IServiceCollection services)
         {
             // Connection to database InMemory or SqlServer
-            var USING_SQL = false;
+            var USING_SQL = true;
             services.AddDbContext<AppDbContext>(options =>
             {
                 if (USING_SQL)
@@ -39,12 +40,13 @@ namespace InredningOnline
                     options.UseInMemoryDatabase("Projects");
 
                 }
-
             });
+
+            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<AppDbContext>();
 
             // Register my own services
             services.AddScoped<IProjectRepo, ProjectRepo>();
-            services.AddScoped<IUserRepo, UserRepo>();
+            services.AddScoped<IDesignerRepo, DesignerRepo>();
             services.AddScoped<IMaterialRepo, MaterialRepo>();
             //Add MVC
             services.AddControllersWithViews();
@@ -74,7 +76,7 @@ namespace InredningOnline
             app.UseStaticFiles();
             app.UseSession();
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -82,6 +84,7 @@ namespace InredningOnline
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
