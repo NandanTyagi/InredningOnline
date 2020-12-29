@@ -44,7 +44,7 @@ namespace InredningOnline.Controllers
                 return RedirectToAction("AddMaterial");
             }
 
-            return View(project);
+            return View(newProjectViewModel);
         }
         public IActionResult AddMaterial(Material material)
         {

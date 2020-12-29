@@ -27,7 +27,7 @@ namespace InredningOnline
         public void ConfigureServices(IServiceCollection services)
         {
             // Connection to database InMemory or SqlServer
-            var USING_SQL = true;
+            var USING_SQL = false;
             services.AddDbContext<AppDbContext>(options =>
             {
                 if (USING_SQL)

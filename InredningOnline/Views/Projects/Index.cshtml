@@ -21,8 +21,9 @@
             }
             <hr>
             <div class="billboard">
-                <div class="total">Total all projects: @Model.GetTotalCost().ToString("c0")</div>
-                <div class="total">Average project cost: @Model.GetAverageCost().ToString("c0")</div>
+                <div class="total">Total projects: @Model.Projects.ToList().Count</div>
+                <div class="total">Total cost: @Model.GetTotalCost().ToString("c0")</div>
+                <div class="total">Average cost: @Model.GetAverageCost().ToString("c0")</div>
             </div>
         </div>
     </div>

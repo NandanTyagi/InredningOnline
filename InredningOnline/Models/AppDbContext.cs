@@ -60,6 +60,7 @@ namespace InredningOnline.Models
                 Id = 1,
                 ProjectId = 1,
                 Name = "Material1",
+                Supplier = "Supplier1",
                 Price = 45,
                 Amount = 1,
                 Details = "N/A"
@@ -69,6 +70,7 @@ namespace InredningOnline.Models
                 Id = 2,
                 ProjectId = 2,
                 Name = "Material2",
+                Supplier = "Supplier2",
                 Price = 98,
                 Amount = 1,
                 Details = "N/A"
@@ -78,6 +80,7 @@ namespace InredningOnline.Models
                 Id = 3,
                 ProjectId = 4,
                 Name = "Material3",
+                Supplier = "Supplier3",
                 Price = 67000,
                 Amount = 1,
                 Details = "N/A"
@@ -87,6 +90,7 @@ namespace InredningOnline.Models
                 Id = 4,
                 ProjectId = 3,
                 Name = "Material4",
+                Supplier = "Supplier4",
                 Price = 77,
                 Amount = 2,
                 Details = "N/A"
@@ -96,6 +100,7 @@ namespace InredningOnline.Models
                 Id = 5,
                 ProjectId = 2,
                 Name = "Material5",
+                Supplier = "Supplier5",
                 Price = 105,
                 Amount = 10,
                 Details = "N/A"
@@ -105,6 +110,7 @@ namespace InredningOnline.Models
                 Id = 6,
                 ProjectId = 2,
                 Name = "Material6",
+                Supplier = "Supplier6",
                 Price = 12,
                 Amount = 1,
                 Details = "N/A"

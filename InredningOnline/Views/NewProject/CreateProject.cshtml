@@ -13,7 +13,7 @@
         <h1 class="text-center">Ballong AB</h1>
 
 
-        <div class="card m-5 p-2">
+        <div class="project-holder m-5 p-2 w-50">
             <div class="grid-header">
                 <h4 class="text-center">Welcome @Model.Designers.FirstOrDefault(u => u.Email == @UserManager.GetUserName(User)).Name</h4>
                 <hr style="border-color:transparent">
@@ -41,13 +41,18 @@
                         <hr>
 
                         <div class="inputs">
-                            @* <label asp-for="Material.ProjectId"></label> *@
                             <input asp-for="Material.ProjectId" class="text-center " type="hidden" value="@(@Model.Projects.ToList().Count + 1)"
                                 placeholder="Material Project Id" tabindex="0">
                         </div>
                         <div class="inputs">
                             <label asp-for="Material.Name"></label>
                             <input asp-for="Material.Name" class="text-center " type="text" placeholder="Material name"
+                                tabindex="0">
+                                <span asp-validation-for="Material.Name" class="text-danger"></span>
+                        </div>
+                        <div class="inputs">
+                            <label asp-for="Material.Supplier"></label>
+                            <input asp-for="Material.Supplier" class="text-center " type="text" placeholder="Supplier"
                                 tabindex="0">
                         </div>
                         <div class="inputs">

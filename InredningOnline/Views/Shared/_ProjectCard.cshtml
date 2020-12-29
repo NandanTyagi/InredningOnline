@@ -8,6 +8,7 @@
                 </div>
                 <div class="grid-container">
                     <div class="grid-item header-item">Material</div>
+                    <div class="grid-item header-item">Supplier</div>
                     <div class="grid-item header-item">Amount</div>
                     <div class="grid-item header-item">Price</div>
                     <div class="grid-item header-item">Details</div>
@@ -16,9 +17,10 @@
                 {
                     <div class="grid-container">
                         <div class="grid-item">@material.Name</div>
+                        <div class="grid-item">@material.Supplier</div>
                         <div class="grid-item">@material.Amount</div>
                         <div class="grid-item">@material.Price.ToString("c0")</div>
-                        <div class="grid-item">@material.Details</div>
+                        <div class="grid-item"><a href=""> @material.Details</a></div>
                     </div>
                 }
                 <hr>
