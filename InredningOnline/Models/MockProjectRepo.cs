@@ -43,7 +43,17 @@ namespace InredningOnline.Models
             return total;
         }
 
+        Project IProjectRepo.GetProjectById(int Id)
+        {
+            throw new System.NotImplementedException();
+        }
+
         void IProjectRepo.SaveProject(Project project)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        void IProjectRepo.UpdateProject(Project oldProject, Project newProject)
         {
             throw new System.NotImplementedException();
         }

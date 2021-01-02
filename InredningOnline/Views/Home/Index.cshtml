@@ -1,4 +1,4 @@
-@model HomeViewModel
+@* @model HomeViewModel
 
 @using Microsoft.AspNetCore.Identity
 
@@ -21,6 +21,7 @@
             }
             <hr>
                 <div class="billboard">
+                    <div class="total">Total projects: @Model.Projects.Where(p => p.Designer.Email == @UserManager.GetUserName(User)).ToList().Count</div>
                     <div class="total">Total all projects: @Model.GetTotalCost(@Model.Projects.FirstOrDefault(u => u.Designer.Email ==
                     @UserManager.GetUserName(User)).Designer.Id).ToString("c0")</div>
                     <div class="total">Average project cost: @Model.GetAverageCost(@Model.Projects.FirstOrDefault(u => u.Designer.Email
@@ -57,4 +58,4 @@ else
 
         </div>
     </div>
-}
+} *@

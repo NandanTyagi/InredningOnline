@@ -24,7 +24,27 @@ namespace InredningOnline.Models
             }
         }
 
+        // IEnumerable<Material> IMaterialRepo.GetMaterialById(int Id)
+        // {
+        //     throw new System.NotImplementedException();
+        // }
+
+        Material IMaterialRepo.GetMaterialById(int Id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        IEnumerable<Material> IMaterialRepo.GetMaterialsByProject(int projectId)
+        {
+            throw new System.NotImplementedException();
+        }
+
         void IMaterialRepo.SaveMaterial(Material material)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        void IMaterialRepo.UpdateMaterial(Material material)
         {
             throw new System.NotImplementedException();
         }

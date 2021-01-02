@@ -42,10 +42,24 @@ namespace InredningOnline.Models
             return total;
         }
 
+        
+
         public void SaveProject(Project project)
         {
             _appDbContext.Add(project);
             _appDbContext.SaveChanges();
+        }
+
+        public Project GetProjectById(int Id)
+        {
+            return _appDbContext.Projects.FirstOrDefault(p => p.Id == Id);
+        }
+
+        void IProjectRepo.UpdateProject(Project oldProject, Project newProject)
+        {
+            oldProject.Name = newProject.Name;
+            
+
         }
     }
 }

@@ -1,4 +1,4 @@
-@* @model MyProjectsViewModel
+@model ProjectsViewModel
 @using Microsoft.AspNetCore.Identity
 
 @inject SignInManager<IdentityUser> SignInManager
@@ -22,4 +22,4 @@
             <div class="total">Average cost: @Model.GetAverageCost(@Model.Projects.FirstOrDefault(u => u.Designer.Email == @UserManager.GetUserName(User)).Designer.Id).ToString("c0")</div>
         </div>
     </div>
-</div> *@
+</div>

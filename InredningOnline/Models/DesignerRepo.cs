@@ -37,5 +37,10 @@ namespace InredningOnline.Models
             _appDbContext.Add(designer);
             _appDbContext.SaveChanges();
         }
+
+        public Designer GetDesignerById(int id)
+        {
+            return _appDbContext.Designers.FirstOrDefault(d => d.Id == id);
+        }
     }
 }
