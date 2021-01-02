@@ -40,6 +40,7 @@ namespace InredningOnline.Models
         {
             return this.AllMaterials.Where(m => m.ProjectId == projectId);
         }
+        
         public Material GetMaterialById(int Id)
         {
             return this.AllMaterials.FirstOrDefault(m => m.Id == Id);

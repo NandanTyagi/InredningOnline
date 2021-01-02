@@ -8,7 +8,6 @@ namespace InredningOnline.Models
         decimal GetTotalCost();
         decimal GetAverageCost();
         Project GetProjectById(int Id);
-        void UpdateProject(Project oldProject, Project newProject);
         void SaveProject(Project project);
     }
 }

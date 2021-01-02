@@ -42,12 +42,14 @@ namespace InredningOnline
                 }
             });
 
+            // Add Identity Core
             services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<AppDbContext>();
 
             // Register my own services
             services.AddScoped<IProjectRepo, ProjectRepo>();
             services.AddScoped<IDesignerRepo, DesignerRepo>();
             services.AddScoped<IMaterialRepo, MaterialRepo>();
+
             //Add MVC
             services.AddControllersWithViews();
 

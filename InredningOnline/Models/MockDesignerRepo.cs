@@ -9,20 +9,15 @@ namespace InredningOnline.Models
         public IEnumerable<Designer> AllDesigners =>
         new List<Designer>
         {
-            new Designer(){Name = "Nandan", Email = "me@nandan.com", IsAdmin = true},
-            new Designer(){Name = "Hadis", Email = "me@hadis.com", IsAdmin = false},
-            new Designer(){Name = "Ali", Email = "me@ali.com", IsAdmin = false}
+            new Designer(){Id= 1, Name = "Nandan", Email = "me@nandan.com", IsAdmin = true},
+            new Designer(){Id = 2, Name = "Hadis", Email = "me@hadis.com", IsAdmin = false},
+            new Designer(){Id = 3, Name = "Ali", Email = "me@ali.com", IsAdmin = false}
 
         };
 
         public Designer GetDesignerByName(string name)
         {
             return this.AllDesigners.ToList().Find(u => u.Name == name);
-        }
-
-        public void SetDesigner(string name, string email, bool isAdmin)
-        {
-            this.AllDesigners.Append<Designer>(new Designer() { Name = name, Email = email, IsAdmin = isAdmin });
         }
 
         Designer IDesignerRepo.GetDesignerById(int id)
