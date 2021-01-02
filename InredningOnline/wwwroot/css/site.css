@@ -65,6 +65,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  color: black;
 }
 .footer {
   position: absolute;
@@ -77,6 +78,9 @@ body {
 /*____________________________________________________________
  My own css
 _____________________________________________________________*/
+.backwhite {
+  background-color: white;
+}
 header {
   z-index: 10;
 }
@@ -93,6 +97,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 .project-holder {
   border: 1px solid lightgray;
@@ -204,6 +209,11 @@ input:hover{
   color: white;
   background-color: black;
   cursor: pointer;
+}
+
+.add:hover {
+  transform: scale(1.1);
+  transition: transform .1s ease-in;
 }
 
 hr {

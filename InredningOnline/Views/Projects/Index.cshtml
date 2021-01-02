@@ -12,9 +12,9 @@
 {
     <div class="fixer">
         <div class="main-container">
-            <h1 class="text-center">Ballong AB</h1>
-            <h2 class="text-center">All @Model.Projects.FirstOrDefault(u => u.Designer.Email ==
-            @UserManager.GetUserName(User)).Designer.Name's projects</h2>
+            <h1 class="text-center">My Projects</h1>
+            <h3 class="text-center">@Model.Projects.FirstOrDefault(u => u.Designer.Email ==
+            @UserManager.GetUserName(User)).Designer.Name's projects:</h3>
             @foreach (var project in Model.Projects.Where(u => u.Designer.Email == @UserManager.GetUserName(User)))
             {
                 <partial name="_ProjectCard" model="project" />

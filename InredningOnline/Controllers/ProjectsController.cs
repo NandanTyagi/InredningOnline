@@ -12,7 +12,6 @@ namespace InredningOnline.Controllers
     {
         private readonly IProjectRepo _projectRepo;
         private readonly IDesignerRepo _designerRepo;
-
         private readonly IMaterialRepo _materialRepo;
 
         public ProjectsController(IProjectRepo projectRepo, IDesignerRepo designerRepo, IMaterialRepo materialRepo)
@@ -20,7 +19,6 @@ namespace InredningOnline.Controllers
             _projectRepo = projectRepo;
             _designerRepo = designerRepo;
             _materialRepo = materialRepo;
-
         }
 
         public IActionResult Index()
@@ -40,6 +38,7 @@ namespace InredningOnline.Controllers
             projectsViewModel.Materials = _materialRepo.AllMaterials;
             return View(projectsViewModel);
         }
+
         public IActionResult EditMaterial(int Id)
         {
             ProjectsViewModel projectsViewModel = new ProjectsViewModel();
@@ -52,8 +51,6 @@ namespace InredningOnline.Controllers
 
             projectsViewModel.Designer = _designerRepo.GetDesignerById(projectsViewModel.Project.DesignerId);
 
-            // if (projectsViewModel.Project == null || projectsViewModel.Designer == null)
-            //     return NotFound();
             return View(projectsViewModel);
         }
 
@@ -64,8 +61,6 @@ namespace InredningOnline.Controllers
             projectsViewModel.Projects = _projectRepo.AllProjects;
             projectsViewModel.Designers = _designerRepo.AllDesigners;
             projectsViewModel.Materials = _materialRepo.AllMaterials;
-
-
 
             if (ModelState.IsValid)
             {
@@ -82,9 +77,7 @@ namespace InredningOnline.Controllers
             projectsViewModel.Designers = _designerRepo.AllDesigners;
             projectsViewModel.Materials = _materialRepo.AllMaterials;
             projectsViewModel.Project = _projectRepo.GetProjectById(id);
-            // projectsViewModel.Project = _projectRepo.GetProjectById(_materialRepo.GetMaterialById(id).ProjectId);
             projectsViewModel.Material = _materialRepo.GetMaterialById(id);
-
             projectsViewModel.Designer = _designerRepo.GetDesignerById(projectsViewModel.Project.DesignerId);
 
             return View(projectsViewModel);
@@ -97,14 +90,10 @@ namespace InredningOnline.Controllers
             projectsViewModel.Projects = _projectRepo.AllProjects;
             projectsViewModel.Designers = _designerRepo.AllDesigners;
             projectsViewModel.Materials = _materialRepo.AllMaterials;
-                _materialRepo.SaveMaterial(material);
+            _materialRepo.SaveMaterial(material);
+                
                 return RedirectToAction("Index");
-
-            // return RedirectToAction("Index");
         }
-
-
-
 
         public IActionResult CreateProject()
         {
@@ -114,6 +103,7 @@ namespace InredningOnline.Controllers
             projectsViewModel.Materials = _materialRepo.AllMaterials;
             return View(projectsViewModel);
         }
+
         [HttpPost]
         public IActionResult CreateProject(Project project, Material material)
         {
@@ -122,8 +112,6 @@ namespace InredningOnline.Controllers
             projectsViewModel.Designers = _designerRepo.AllDesigners;
             projectsViewModel.Materials = _materialRepo.AllMaterials;
 
-
-
             if (ModelState.IsValid)
             {
                 _projectRepo.SaveProject(project);
@@ -131,19 +119,6 @@ namespace InredningOnline.Controllers
                 return Redirect("/");
             }
 
-            return View(projectsViewModel);
-        }
-
-
-
-
-
-        public IActionResult MyProjects()
-        {
-            ProjectsViewModel projectsViewModel = new ProjectsViewModel();
-            projectsViewModel.Projects = _projectRepo.AllProjects;
-            projectsViewModel.Designers = _designerRepo.AllDesigners;
-            projectsViewModel.Materials = _materialRepo.AllMaterials;
             return View(projectsViewModel);
         }
     }

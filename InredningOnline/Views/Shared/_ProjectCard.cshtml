@@ -2,7 +2,7 @@
 
 <div class="project-holder">
                 <div class="grid-header">
-                    <a href="/Projects/AddMaterial/@Model.Id" class="btn" style="line-height: 15px;" title="Add material">+</a>
+                    <a href="/Projects/AddMaterial/@Model.Id" class="btn add" style="line-height: 15px;" title="Add material">+</a>
                     <h4 class="text-center">@Model.Name</h4>
                     <h6 class="text-center">Designer: @Model.Designer.Name</h6>
                     
@@ -23,7 +23,7 @@
                         <div class="grid-item">@material.Amount</div>
                         <div class="grid-item">@material.Price.ToString("c0")</div>
                         <div class="grid-item"><a href="http://@material.Details" target="_blank"> @material.Details</a></div>
-                            <div class="grid-item"><a href="/Projects/EditMaterial/@material.Id" class="text-center btn" title="Edit"
+                            <div class="grid-item"><a href="/Projects/EditMaterial/@material.Id" class="text-center btn add" title="Edit"
                                 style="height: fit-content; margin: 0; padding: 0;"><i class="far fa-edit"></i></a></div>
                             
                        
