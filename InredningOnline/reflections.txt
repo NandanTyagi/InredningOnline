@@ -85,3 +85,21 @@ ANVÄNDARE
     Det finns 3 st "Designers" hårdkodade i AppDbContext. En av dem som är inköpschefen har variabeln IsAdmin satt till true och de andra två, som inte
     har befogenheter att se och redigera alla projekt, har variabeln satt till "false".
     I view'en "AllProjects" har jag en If-sats som kontrollerar denna variabel och ger eller nekar tillgången till sidan beroende på variabelns värde.
+
+REFLEKTION
+
+    Här fick jag en introduktion till hur MVC, Middleware, Dependency Injection och Repository designemönster fungerar.
+    Jag fick även lära mig mycket om Databas koppling och ORM hantering i Entity Framework och sist men inte minst användarautentisering via Identity Core.
+    Det har verkligen varit mycket att ta in.
+    Jag har fått ett ok grepp om hur MVC, Middleware och Repository pattern funkar samt hur Entity Framework Core fungerar men jag känner mig
+    ganska otrygg och osäker när det kommer till Dependency Injection och Identity Core.
+    Hela DI konceptet känns flummigt, jag har förståt det i teorin men det har inte riktigt klarnat för mig hur det fungerar i praktiken.
+    Identeity Core är så stort så jag nöjer mig med att bara utnyttja de delar jag fick intro till i den här modulen. Jag har dock ingen förståelse för hur det fungerar "under the hood", men det kommer i framtiden hoppas jag.
+
+    För den här uppgiften bytte jag från Visual Studio 2019 till VS Code och jag kan konstatera att jag kommer att fortsätta använda VS Code
+    i framtiden då det känns mycket agilare och skönare helt enkelt.
+
+    När det kommer till testning hade jag svårt att implimentera testning för AppDbContext, jag testade MockRepository istället där jag testar beräkningarna.
+    Att testa Identity Core och att rätt användare blir inloggad känner jag i nuläget är bort om min kunskaps nivå.
+
+    Överlag känner jag att efter den här modulen kan jag använda ASP.NET för att bygga enklare dynamiska applikationer. Det känns riktigt bra! 
