@@ -16,6 +16,7 @@
                     <h6 class="text-center">Designer: @Model.GetDesignerById(@Model.Project.DesignerId).Name</h6>
                     <hr>
                 </div>
+                
                 <div class="grid-container-edit">
                     <div class="grid-item header-item"></div>
                     <div class="grid-item header-item">Material</div>
@@ -25,22 +26,21 @@
                     <div class="grid-item header-item">Details</div>
                 </div>
 
-                
-                    <div class="grid-container-edit">
-                        <div class="grid-item "><input asp-for="@Model.Material.Id" type="hidden" value="@Model.Material.Id" contenteditable="false"></div>
-                        <div class="grid-item "><input asp-for="@Model.Material.Name" type="text" value="@Model.Material.Name"></div>
-                        <div class="grid-item"><input asp-for="@Model.Material.Supplier" type="text" value="@Model.Material.Supplier">
-                        </div>
-                        <div class="grid-item"><input asp-for="@Model.Material.Amount" type="number" value="@Model.Material.Amount">
-                        </div>
-                        <div class="grid-item"><input asp-for="@Model.Material.Price" type="number"
-                                value="@Model.Material.Price"></div>
-                        <div class="grid-item"><input asp-for="@Model.Material.Details" type="text"
-                                value="@Model.Material.Details"><span class="grid-item"></div>
-                        <div class="grid-item"><input type="submit" class="btn" value="Save"> </div>
-
-                    </div>
-                
+                <div class="grid-container-edit">
+                    <div class="grid-item "><input asp-for="@Model.Material.Id" type="hidden" value="@Model.Material.Id"
+                            contenteditable="false"></div>
+                    <div class="grid-item "><input asp-for="@Model.Material.Name" type="text"
+                            value="@Model.Material.Name"></div>
+                    <div class="grid-item"><input asp-for="@Model.Material.Supplier" type="text"
+                            value="@Model.Material.Supplier"></div>
+                    <div class="grid-item"><input asp-for="@Model.Material.Amount" type="number"
+                            value="@Model.Material.Amount"></div>
+                    <div class="grid-item"><input asp-for="@Model.Material.Price" type="number"
+                            value="@Model.Material.Price"></div>
+                    <div class="grid-item" title="Add link in 'www.xxxxxxxx.xxx' format"><input asp-for="@Model.Material.Details" type="text"
+                            value="@Model.Material.Details"><span class="grid-item"></div>
+                    <div class="grid-item" ><input type="submit" class="btn" value="Save"></div>
+                </div>
             </form>
             <hr>
             <div class="total">Price: @Model.Material.Price.ToString("c0")</div>
@@ -53,9 +53,11 @@
         @* <div class="billboard">
             <div class="total">Total projects: @Model.Material.Projects.Where(u => u.Designer.Email ==
             @UserManager.GetUserName(User)).ToList().Count</div>
-            <div class="total">Total cost: @Model.Material.GetTotalCost(@Model.Material.Projects.FirstOrDefault(u => u.Designer.Email ==
+            <div class="total">Total cost: @Model.Material.GetTotalCost(@Model.Material.Projects.FirstOrDefault(u =>
+            u.Designer.Email ==
             @UserManager.GetUserName(User)).Designer.Id).ToString("c0")</div>
-            <div class="total">Average cost: @Model.Material.GetAverageCost(@Model.Material.Projects.FirstOrDefault(u => u.Designer.Email
+            <div class="total">Average cost: @Model.Material.GetAverageCost(@Model.Material.Projects.FirstOrDefault(u =>
+            u.Designer.Email
             == @UserManager.GetUserName(User)).Designer.Id).ToString("c0")</div>
             </div> *@
     </div>

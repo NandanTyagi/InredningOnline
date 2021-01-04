@@ -1,0 +1,87 @@
+WU 20 Inlämningsuppgift: InredningOnline
+
+STRUKTUR
+
+    Project klassens fält består av:
+
+        int Id ()
+        string Name
+        int DesignerId (Projektet håller reda på vilken Designer den tillhör)
+        Designer Designer
+        IEnumerable<Material> Materials 
+
+    Project innehåller en metod:
+        GetTotalCost()(Summerar materialkostnaden för projektet)
+
+    Material klassens fält:
+
+        int Id
+        int ProjectId (Materialen håller reda på vilken projekt de tillhör)
+        string Namn
+        string Supplier
+        decimal Price
+        string Details (Tar emot länkadress i form av www.xxxxxxx.xxx)
+
+    Designer klassens fält:
+
+        int Id
+        string Name
+        string Email
+        bool IsAdmin (Inköpschefen är admin och kan se och redigera allas projekt.)
+
+    ProjectsController.cs
+
+        IActionresult Index()(MyProjects)
+        IActionresult AllProjects()(endast Admin har tillgång)
+        IActionresult CreateProject()
+        IActionresult CreateProject(Project project, Material material)[HttpPost]
+        IActionresult EditMateral(int Id)
+        IActionresult EditMateral(Material material)[HttpPost]
+        IActionresult AddMaterial(int Id)
+        IActionresult AddMaterial(Material material)[HttpPost]
+
+    ProjectsViewModel.cs
+
+        Fält:
+        IEnumerable<Project> Projects
+        IEnumerable<Designer> Designers
+        IEnumerable<Material> Materials
+        IProjectRepo Repo
+        Project Project
+        Designer Designer
+        Material Material
+
+        Metoder:
+        decimal GetAverageCost() (Av alla Project)
+        decimal GetAverageCost(int designerId)
+        decimal GetTotalCost()
+        decimal GetTotalCost(int designerId)
+        Designer GetDesignerById(int id)
+      
+    Views:
+        Projects/Index
+        Projects/CreateProject
+        Projects/AllProjects
+        Projects/EditMateral
+        Projects/AddMaterial
+
+    Partial views:
+        _Layout.cshtml (Från ASP.Net)
+        _LoginPartial.cshtml (Från Identity core för inloggning i naven)
+        _ProjectCard.cshtml
+
+    Jag har valt att endast ha en "Controller" och "ViewModel" klass som innehåller alla actions respektive View logic/data.
+    Jag hade en controller och ViewModel för varje sida först men det blev så bökigt och onödigt komplicerat så jag minskade
+    till endast en av varje.
+
+SÄKERHET
+
+    Jag har använt Identity Core's inbyggda funktionalitet för log-in/-out och registrering
+    samt dess egenskaper UserManager och SignInManager för att säkerställa att endast inloggade användare har åtkomst till project sidorna.
+    Denna funktionalitet har aktiverats genom att åberopa UseAuthentication() och UseAuthorization() i Startup klassen. 
+
+ANVÄNDARE
+
+    Det finns 3 st "Designers" hårdkodade i AppDbContext. En av dem som är inköpschefen har variabeln IsAdmin satt till true och de andra två, som inte
+    har befogenheter att se och redigera alla projekt, har variabeln satt till "false".
+    I view'en "AllProjects" har jag en If-sats som kontrollerar denna variabel och ger eller nekar tillgången till sidan beroende på variabelns värde.

@@ -4,6 +4,7 @@ using InredningOnline.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using System.Linq;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.AspNetCore.Routing.Constraints;
 
 namespace InredningOnline.Controllers
 {
@@ -90,9 +91,15 @@ namespace InredningOnline.Controllers
             projectsViewModel.Projects = _projectRepo.AllProjects;
             projectsViewModel.Designers = _designerRepo.AllDesigners;
             projectsViewModel.Materials = _materialRepo.AllMaterials;
-            _materialRepo.SaveMaterial(material);
-                
-                return RedirectToAction("Index");
+
+            if (ModelState.IsValid)
+            {
+                _materialRepo.SaveMaterial(material);
+                return Redirect("/");
+            }
+
+            return View("AddMaterial");
+
         }
 
         public IActionResult CreateProject()

@@ -19,9 +19,9 @@ namespace InredningOnline.Models
             base.OnModelCreating(modelBuilder);
 
             // Seed Designers
-            modelBuilder.Entity<Designer>().HasData(new Designer { Id = 1, Name = "Nandan", Email = "me@nandan.com", IsAdmin = true });
-            modelBuilder.Entity<Designer>().HasData(new Designer { Id = 2, Name = "Hadis", Email = "me@hadis.com", IsAdmin = false });
-            modelBuilder.Entity<Designer>().HasData(new Designer { Id = 3, Name = "Ali", Email = "me@ali.com", IsAdmin = false });
+            modelBuilder.Entity<Designer>().HasData(new Designer { Id = 1, Name = "Ingrid", Email = "me@ingrid.com", IsAdmin = true });
+            modelBuilder.Entity<Designer>().HasData(new Designer { Id = 2, Name = "Nandan", Email = "me@nandan.com", IsAdmin = false });
+            modelBuilder.Entity<Designer>().HasData(new Designer { Id = 3, Name = "Viktor", Email = "me@viktor.com", IsAdmin = false });
 
 
             // Seed Projects
@@ -30,28 +30,27 @@ namespace InredningOnline.Models
                 Id = 1,
                 Name = "Project1",
                 DesignerId = 1,
-                // Materials = (System.Collections.Generic.IEnumerable<Material>)modelBuilder.Entity<Material>().HasData(new Material { ProjectId = 1, Name = "Material1", Price = 25, Amount = 1, Details = "N/A" })
             });
+            
             modelBuilder.Entity<Project>().HasData(new Project
             {
                 Id = 2,
                 Name = "Project2",
                 DesignerId = 2,
-                // Materials = (System.Collections.Generic.IEnumerable<Material>)modelBuilder.Entity<Material>().HasData(new Material { ProjectId = 1, Name = "Material1", Price = 25, Amount = 1, Details = "N/A" })
             });
+
             modelBuilder.Entity<Project>().HasData(new Project
             {
                 Id = 3,
                 Name = "Project3",
                 DesignerId = 3,
-                // Materials = (System.Collections.Generic.IEnumerable<Material>)modelBuilder.Entity<Material>().HasData(new Material { ProjectId = 1, Name = "Material1", Price = 25, Amount = 1, Details = "N/A" })
             });
+
             modelBuilder.Entity<Project>().HasData(new Project
             {
                 Id = 4,
                 Name = "Project4",
                 DesignerId = 2,
-                // Materials = (System.Collections.Generic.IEnumerable<Material>)modelBuilder.Entity<Material>().HasData(new Material { ProjectId = 1, Name = "Material1", Price = 25, Amount = 1, Details = "N/A" })
             });
 
             // Seed Materials
@@ -63,8 +62,9 @@ namespace InredningOnline.Models
                 Supplier = "Supplier1",
                 Price = 45,
                 Amount = 1,
-                Details = "N/A"
+                Details = "www.material.com"
             });
+
             modelBuilder.Entity<Material>().HasData(new Material
             {
                 Id = 2,
@@ -75,6 +75,7 @@ namespace InredningOnline.Models
                 Amount = 1,
                 Details = "N/A"
             });
+
             modelBuilder.Entity<Material>().HasData(new Material
             {
                 Id = 3,
@@ -83,8 +84,9 @@ namespace InredningOnline.Models
                 Supplier = "Supplier3",
                 Price = 67000,
                 Amount = 1,
-                Details = "N/A"
+                Details = "www.material-ui.com"
             });
+
             modelBuilder.Entity<Material>().HasData(new Material
             {
                 Id = 4,
@@ -95,6 +97,7 @@ namespace InredningOnline.Models
                 Amount = 2,
                 Details = "N/A"
             });
+
             modelBuilder.Entity<Material>().HasData(new Material
             {
                 Id = 5,
@@ -105,6 +108,7 @@ namespace InredningOnline.Models
                 Amount = 10,
                 Details = "N/A"
             });
+
             modelBuilder.Entity<Material>().HasData(new Material
             {
                 Id = 6,
@@ -113,7 +117,7 @@ namespace InredningOnline.Models
                 Supplier = "Supplier6",
                 Price = 12,
                 Amount = 1,
-                Details = "N/A"
+                Details = "www.material.io"
             });
         }
     }

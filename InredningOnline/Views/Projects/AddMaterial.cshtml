@@ -3,53 +3,73 @@
 @{
     ViewData["Title"] = "Add Material";
 }
-<div class="fixer">
-    <div class="main-container">
-        <h1 class="text-center">Ballong AB</h1>
+@try
+{
+    <div class="fixer">
+        <div class="main-container">
+            <h1 class="text-center">Ballong AB</h1>
 
-
-        <div class="project-holder">
-            <div class="grid-header">
-                <h4 class="text-center">Add Material</h4>
+            <div class="project-holder">
                 <div class="grid-header">
-                    <h4 class="text-center">@Model.GetProjectById(1).Name</h4>
-                    <h6 class="text-center">Designer: @Model.GetDesignerById(1).Name</h6>
-                    <hr>
-                </div>
-                <div class="grid-container-edit-e">
-                    <div class="grid-item header-item"></div>
-                    <div class="grid-item header-item"></div>
-                    <div class="grid-item header-item">Material</div>
-                    <div class="grid-item header-item">Supplier</div>
-                    <div class="grid-item header-item">Amount</div>
-                    <div class="grid-item header-item">Price</div>
-                    <div class="grid-item header-item">Details</div>
-                </div>
-
-
-                <form action="AddMaterial" method="post">
+                    <h4 class="text-center">Add Material</h4>
+                    <div class="grid-header">
+                        <h4 class="text-center">@Model.Project.Name</h4>
+                        <h6 class="text-center">Designer: @Model.Designer.Name</h6>
+                        <hr>
+                    </div>
                     <div class="grid-container-edit-e">
-                        <div class="grid-item "><input asp-for="Material.Id" type="hidden"value="@((@Model.Materials.ToList().Count) + 1)" contenteditable="false"></div>
-                        <div class="grid-item "><input asp-for="Material.ProjectId" type="hidden" value="@Model.Project.Id" contenteditable="false"></div>
-                        <div class="grid-item "><input asp-for="Material.Name" type="text" value=""></div>
-                        <div class="grid-item"><input asp-for="Material.Supplier" type="text" value="">
-                        </div>
-                        <div class="grid-item"><input asp-for="Material.Amount" type="number" value="">
-                        </div>
-                        <div class="grid-item"><input asp-for="Material.Price" type="number" value=""></div>
-                        <div class="grid-item"><input asp-for="Material.Details" type="text" value=""></div>
-                        
-                        <div class="grid-item"><input type="submit" class="btn" value="Save" style="margin-top: 8px;padding: 0;"> </div>
+                        @* Tom div för att jämna ut gridden *@
                         <div class="grid-item header-item"></div>
+                        @* Tom div för att jämna ut griden *@
                         <div class="grid-item header-item"></div>
 
+                        <div class="grid-item header-item">Material</div>
+                        <div class="grid-item header-item">Supplier</div>
+                        <div class="grid-item header-item">Amount</div>
+                        <div class="grid-item header-item">Price</div>
+                        <div class="grid-item header-item">Details</div>
                     </div>
 
-                </form>
+                    <form action="AddMaterial" method="post">
+                        <div class="grid-container-edit-e">
+                            @* Material Id anges automatiskt *@
+                            <div class="grid-item "><input asp-for="Material.Id" type="hidden"
+                                    value="@((@Model.Materials.ToList().Count) + 1)" contenteditable="false"></div>
+                            @* Materialets projekt Id anges automatiskt *@
+                            <div class="grid-item "><input asp-for="Material.ProjectId" type="hidden"
+                                    value="@Model.Project.Id" contenteditable="false"></div>
+
+                            <div class="grid-item "><input asp-for="Material.Name" type="text" value=""></div>
+
+                            <div class="grid-item"><input asp-for="Material.Supplier" type="text" value="">
+                            </div>
+                            <div class="grid-item"><input asp-for="Material.Amount" type="number" value="">
+                            </div>
+                            <div class="grid-item"><input asp-for="Material.Price" type="number" value=""></div>
+
+                            <div class="grid-item" title="Add link in 'www.xxxxxxxx.xxx' format"><input asp-for="Material.Details" type="text" value=""></div>
+
+                            <div class="grid-item"><input type="submit" class="btn" value="Save"
+                                    style="margin-top: 8px;padding: 0;"> </div>
+                            @* Tom div för att jämna ut gridden *@
+                            <div class="grid-item header-item"></div>
+                            @* Tom div för att jämna ut gridden *@
+                            <div class="grid-item header-item"></div>
+
+                        </div>
+
+                    </form>
+                </div>
+
             </div>
 
+            <div class="total"></div>
         </div>
-
-        <div class="total"></div>
     </div>
-</div>
+}
+@* Om nödvändiga fält lämnas tomma fångas felet och användaren får pröva igen *@
+catch
+{
+    <h6 class="text-center text-danger">Invalid Entry! <br> <a asp-action="Index">Try again</a></h6>
+    <span asp-validation-summary="All" class="text-danger"></span>
+}

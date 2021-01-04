@@ -8,6 +8,9 @@
 @{
     ViewData["Title"] = "Home";
 }
+
+
+@* Om användare inloggad visa "My Projects"*@
 @if (SignInManager.IsSignedIn(User))
 {
     <div class="fixer">
@@ -20,23 +23,23 @@
                 <partial name="_ProjectCard" model="project" />
             }
             <hr>
-                <div class="billboard">
-                    <div class="total">Total projects: @Model.Projects.Where(p => p.Designer.Email == @UserManager.GetUserName(User)).ToList().Count</div>
-                    <div class="total">Total all projects: @Model.GetTotalCost(@Model.Projects.FirstOrDefault(u => u.Designer.Email ==
-                    @UserManager.GetUserName(User)).Designer.Id).ToString("c0")</div>
-                    <div class="total">Average project cost: @Model.GetAverageCost(@Model.Projects.FirstOrDefault(u => u.Designer.Email
-                    == @UserManager.GetUserName(User)).Designer.Id).ToString("c0")</div>
-                </div>
+            <div class="billboard">
+                <div class="total">Total projects: @Model.Projects.Where(p => p.Designer.Email ==
+                @UserManager.GetUserName(User)).ToList().Count</div>
+                <div class="total">Total cost: @Model.GetTotalCost(@Model.Projects.FirstOrDefault(u => u.Designer.Email ==
+                @UserManager.GetUserName(User)).Designer.Id).ToString("c0")</div>
+                <div class="total">Average cost: @Model.GetAverageCost(@Model.Projects.FirstOrDefault(u => u.Designer.Email
+                == @UserManager.GetUserName(User)).Designer.Id).ToString("c0")</div>
+            </div>
         </div>
     </div>
 }
+@* Visa välkomst/inloggnings sida *@
 else
 {
     <div class="fixer">
         <div class="main-container">
             <h1 class="text-center">Ballong AB</h1>
-
-
             <div class="card m-5 p-2">
                 <div class="grid-header">
                     <h4 class="text-center">Procurement Portal</h4>
@@ -47,7 +50,6 @@ else
                             <div class="btn-container d-flex ">
                                 <a href="/Identity/Account/Login" class="btn" tabindex="0">Login</a>
                                 <a href="/Identity/Account/Register" class="btn" tabindex="0">Register</a>
-
                             </div>
                             <div class="total">Login to view or edit projects</div>
                         </div>
