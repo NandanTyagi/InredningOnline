@@ -1,25 +1,27 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace InredningOnline.Models
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<IdentityUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
             this.Database.EnsureCreated();
         }
         public DbSet<Project> Projects { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Designer> Designers { get; set; }
         public DbSet<Material> Materials { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            // Seed users
-            modelBuilder.Entity<User>().HasData(new User { Id = 1, Name = "Nandan", Email = "me@nandan.com", IsAdmin = true });
-            modelBuilder.Entity<User>().HasData(new User { Id = 2, Name = "Hadis", Email = "me@hadis.com", IsAdmin = false });
-            modelBuilder.Entity<User>().HasData(new User { Id = 3, Name = "Ali", Email = "me@ali.com", IsAdmin = false });
+            // Seed Designers
+            modelBuilder.Entity<Designer>().HasData(new Designer { Id = 1, Name = "Ingrid", Email = "me@ingrid.com", IsAdmin = true });
+            modelBuilder.Entity<Designer>().HasData(new Designer { Id = 2, Name = "Nandan", Email = "me@nandan.com", IsAdmin = false });
+            modelBuilder.Entity<Designer>().HasData(new Designer { Id = 3, Name = "Viktor", Email = "me@viktor.com", IsAdmin = false });
 
 
             // Seed Projects
@@ -27,29 +29,36 @@ namespace InredningOnline.Models
             {
                 Id = 1,
                 Name = "Project1",
-                UserId = 1,
-                // Materials = (System.Collections.Generic.IEnumerable<Material>)modelBuilder.Entity<Material>().HasData(new Material { ProjectId = 1, Name = "Material1", Price = 25, Amount = 1, Details = "N/A" })
+                DesignerId = 1,
+                
             });
             modelBuilder.Entity<Project>().HasData(new Project
             {
                 Id = 2,
                 Name = "Project2",
-                UserId = 2,
-                // Materials = (System.Collections.Generic.IEnumerable<Material>)modelBuilder.Entity<Material>().HasData(new Material { ProjectId = 1, Name = "Material1", Price = 25, Amount = 1, Details = "N/A" })
+                DesignerId = 2,
+                
             });
             modelBuilder.Entity<Project>().HasData(new Project
             {
                 Id = 3,
                 Name = "Project3",
-                UserId = 3,
-                // Materials = (System.Collections.Generic.IEnumerable<Material>)modelBuilder.Entity<Material>().HasData(new Material { ProjectId = 1, Name = "Material1", Price = 25, Amount = 1, Details = "N/A" })
+                DesignerId = 3,
+                
             });
             modelBuilder.Entity<Project>().HasData(new Project
             {
                 Id = 4,
                 Name = "Project4",
-                UserId = 2,
-                // Materials = (System.Collections.Generic.IEnumerable<Material>)modelBuilder.Entity<Material>().HasData(new Material { ProjectId = 1, Name = "Material1", Price = 25, Amount = 1, Details = "N/A" })
+                DesignerId = 2,
+
+            });
+            modelBuilder.Entity<Project>().HasData(new Project
+            {
+                Id = 5,
+                Name = "Project5",
+                DesignerId = 1,
+
             });
 
             // Seed Materials
@@ -58,6 +67,7 @@ namespace InredningOnline.Models
                 Id = 1,
                 ProjectId = 1,
                 Name = "Material1",
+                Supplier = "Supplier1",
                 Price = 45,
                 Amount = 1,
                 Details = "N/A"
@@ -67,6 +77,7 @@ namespace InredningOnline.Models
                 Id = 2,
                 ProjectId = 2,
                 Name = "Material2",
+                Supplier = "Supplier2",
                 Price = 98,
                 Amount = 1,
                 Details = "N/A"
@@ -76,6 +87,7 @@ namespace InredningOnline.Models
                 Id = 3,
                 ProjectId = 4,
                 Name = "Material3",
+                Supplier = "Supplier3",
                 Price = 67000,
                 Amount = 1,
                 Details = "N/A"
@@ -83,8 +95,9 @@ namespace InredningOnline.Models
             modelBuilder.Entity<Material>().HasData(new Material
             {
                 Id = 4,
-                ProjectId = 2,
+                ProjectId = 3,
                 Name = "Material4",
+                Supplier = "Supplier4",
                 Price = 77,
                 Amount = 2,
                 Details = "N/A"
@@ -94,6 +107,7 @@ namespace InredningOnline.Models
                 Id = 5,
                 ProjectId = 2,
                 Name = "Material5",
+                Supplier = "Supplier5",
                 Price = 105,
                 Amount = 10,
                 Details = "N/A"
@@ -103,9 +117,30 @@ namespace InredningOnline.Models
                 Id = 6,
                 ProjectId = 2,
                 Name = "Material6",
+                Supplier = "Supplier6",
                 Price = 12,
                 Amount = 1,
                 Details = "N/A"
+            });
+            modelBuilder.Entity<Material>().HasData(new Material
+            {
+                Id = 7,
+                ProjectId = 5,
+                Name = "Material7",
+                Supplier = "Supplier7",
+                Price = 18,
+                Amount = 5,
+                Details = "www.material.io"
+            });
+            modelBuilder.Entity<Material>().HasData(new Material
+            {
+                Id = 8,
+                ProjectId = 5,
+                Name = "Material8",
+                Supplier = "Supplier8",
+                Price = 67,
+                Amount = 9,
+                Details = "www.material.com"
             });
         }
     }

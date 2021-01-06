@@ -7,7 +7,7 @@ namespace InredningOnline.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "Designers",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -18,7 +18,7 @@ namespace InredningOnline.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_Designers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -28,15 +28,15 @@ namespace InredningOnline.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    DesignerId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Projects", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Projects_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
+                        name: "FK_Projects_Designers_DesignerId",
+                        column: x => x.DesignerId,
+                        principalTable: "Designers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -65,23 +65,23 @@ namespace InredningOnline.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Users",
+                table: "Designers",
                 columns: new[] { "Id", "Email", "IsAdmin", "Name" },
                 values: new object[] { 1, "me@nandan.com", true, "Nandan" });
 
             migrationBuilder.InsertData(
-                table: "Users",
+                table: "Designers",
                 columns: new[] { "Id", "Email", "IsAdmin", "Name" },
                 values: new object[] { 2, "me@hadis.com", false, "Hadis" });
 
             migrationBuilder.InsertData(
-                table: "Users",
+                table: "Designers",
                 columns: new[] { "Id", "Email", "IsAdmin", "Name" },
                 values: new object[] { 3, "me@ali.com", false, "Ali" });
 
             migrationBuilder.InsertData(
                 table: "Projects",
-                columns: new[] { "Id", "Name", "UserId" },
+                columns: new[] { "Id", "Name", "DesignerId" },
                 values: new object[,]
                 {
                     { 1, "Project1", 1 },
@@ -109,9 +109,9 @@ namespace InredningOnline.Migrations
                 column: "ProjectId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Projects_UserId",
+                name: "IX_Projects_DesignerId",
                 table: "Projects",
-                column: "UserId");
+                column: "DesignerId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -123,7 +123,7 @@ namespace InredningOnline.Migrations
                 name: "Projects");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Designers");
         }
     }
 }

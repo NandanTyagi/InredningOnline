@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace InredningOnline.Models
@@ -8,9 +9,12 @@ namespace InredningOnline.Models
 
         // Properties
         public int Id { get; set; }
+        [Required(ErrorMessage = "Enter name of project")]
         public string Name { get; set; }
-        public int UserId { get; set; }
-        public User User { get; set; }
+        [Required]
+        [Display(Name = "Designer Id")]
+        public int DesignerId { get; set; }
+        public Designer Designer { get; set; }
         public IEnumerable<Material> Materials { get; set; }
 
         public decimal GetTotalCost()

@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - InredningOnline</title>
+    <title>@ViewData["Title"] - Ballong AB</title>
+    <script src="https://kit.fontawesome.com/3bacd275d1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -13,7 +14,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">InredningOnline</a>
+                <a class="navbar-brand text-danger" asp-area="" asp-controller="Home" asp-action="Index">Ballong AB</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,11 +22,22 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark hover" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark hover" asp-area="" asp-controller="Projects"
+                                asp-action="AllProjects">All Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark hover" asp-area="" asp-controller="Projects"
+                                asp-action="CreateProject">New Project</a>
+                        </li>
+                        @* <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Projects"
-                                asp-action="Index">Projects</a>
+                                asp-action="MyProjects">My Projects</a>
+                        </li> *@
+                        <li class="nav-item aside">
+                            <partial name="_LoginPartial" />
                         </li>
                     </ul>
                 </div>
@@ -40,7 +52,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - InredningOnline - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2020 - Ballong AB - <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

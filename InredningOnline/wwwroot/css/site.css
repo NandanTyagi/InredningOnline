@@ -11,6 +11,10 @@ a.navbar-brand {
 a {
   color: #0366d6;
 }
+a:hover {
+  text-decoration: none;
+  color: dodgerblue;
+}
 
 .btn-primary {
   color: #fff;
@@ -73,6 +77,10 @@ body {
 /*____________________________________________________________
  My own css
 _____________________________________________________________*/
+header {
+  z-index: 10;
+}
+
 .fixer {
   display: flex;
   flex-direction: column;
@@ -80,16 +88,52 @@ _____________________________________________________________*/
   align-items: center;
 }
 .main-container {
-  width: 60%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.project-holder {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  width: fit-content;
+  margin: 30px 0;
+  padding: 15px;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  z-index: 0;
+
 }
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, minmax(150px,1fr));
+  grid-template-columns: repeat(6, minmax(150px,1fr));
+  grid-auto-rows: 20px;
+}
+.grid-container-edit {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(150px,1fr));
+  grid-auto-rows: 20px;
+}
+.grid-container-edit-e {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(150px,1fr));
+  grid-auto-rows: 20px;
+}
+.grid-container-add-material {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(150px,1fr));
   grid-auto-rows: 20px;
 }
 .grid-item {
   display: flex;
   justify-content: center;
+}
+.grid-item:not(.header-item):last-of-type > a{
+  width: 50%;
+  border: 0px solid black;
+  text-align: left;
+  font-size: smaller;
+
 }
 
 .header-item {
@@ -99,4 +143,95 @@ _____________________________________________________________*/
   text-align: center;
   font-weight: bold;
   margin: 10px;
+}
+
+/*_______________________________________________________
+Home
+________________________________________________________*/
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+
+}
+
+.inputs {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: center;
+  width: 50%;
+}
+input {
+  margin-top: 5px;
+  border: 3px solid rgb(128, 126, 126);
+  border-radius: 5px;
+  height: fit-content;
+}
+.grid-container-edit > .grid-item > input {
+  margin-top: 5px;
+  border: 3px solid rgb(128, 126, 126);
+  border-radius: 5px;
+  height: fit-content;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+.grid-container-edit > .grid-item:last-of-type > input {
+  margin-top: 5px;
+  border: 0px solid rgb(128, 126, 126);
+  border-radius: 5px;
+  height: fit-content;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+input:hover{
+  color:black;
+  background-color: lightgray;
+
+}
+
+.btn {
+  font-weight: 500;
+  border: 1px solid rgb(92, 90, 90);
+  width: 90px;
+  margin:10px 5px;
+  color: dodgerblue;
+}
+.btn:hover{
+  color: white;
+  background-color: black;
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: transform 0.1s ease-in-out;
+}
+.hover:hover {
+  transform: scale(1.1);
+  transition: transform 0.1s ease-in-out;
+}
+
+hr {
+  color: rgb(8, 8, 8);
+}
+
+.aside {
+  position: absolute;
+  right: 20px;
+}
+.lift {
+  margin-bottom: 5px;
+  font-size: small;
+  line-height: 15px;
+}
+header {
+  position: sticky;
+  top: 0;
+}
+.billboard {
+  position: fixed;
+  right: 20px;
+  top: 70px;
+  border: 1px solid lightgray;
 }

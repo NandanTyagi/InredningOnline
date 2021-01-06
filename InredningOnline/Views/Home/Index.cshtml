@@ -1,4 +1,4 @@
-@model ProjectsViewModel
+@model HomeViewModel
 
 @using Microsoft.AspNetCore.Identity
 
@@ -8,6 +8,7 @@
 @{
     ViewData["Title"] = "Home";
 }
+
 @if (SignInManager.IsSignedIn(User))
 {
     <div class="fixer">
