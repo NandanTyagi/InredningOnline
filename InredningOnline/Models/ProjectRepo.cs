@@ -58,8 +58,6 @@ namespace InredningOnline.Models
         void IProjectRepo.UpdateProject(Project oldProject, Project newProject)
         {
             oldProject.Name = newProject.Name;
-            
-
         }
     }
 }
