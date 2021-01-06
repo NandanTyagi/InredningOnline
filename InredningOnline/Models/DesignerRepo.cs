@@ -42,5 +42,29 @@ namespace InredningOnline.Models
         {
             return _appDbContext.Designers.FirstOrDefault(d => d.Id == id);
         }
+        public bool CompareEmail(string email)
+        {
+            var test = new List<bool>();
+            foreach (var designer in _appDbContext.Designers)
+            {
+                if (designer.Email == email)
+                {
+                    test.Add(true);
+                }
+                else
+                {
+                    test.Add(false);
+                }
+            }
+
+            if (test.Contains(true))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

@@ -25,9 +25,15 @@ namespace InredningOnline.Models
             this.AllDesigners.Append<Designer>(new Designer() { Name = name, Email = email, IsAdmin = isAdmin });
         }
 
+        bool IDesignerRepo.CompareEmail(string email)
+        {
+            throw new System.NotImplementedException();
+        }
+
         Designer IDesignerRepo.GetDesignerById(int id)
         {
             return this.AllDesigners.FirstOrDefault(d => d.Id == id);
         }
+
     }
 }
