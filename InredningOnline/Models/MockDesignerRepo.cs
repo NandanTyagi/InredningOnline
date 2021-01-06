@@ -9,9 +9,9 @@ namespace InredningOnline.Models
         public IEnumerable<Designer> AllDesigners =>
         new List<Designer>
         {
-            new Designer(){Name = "Nandan", Email = "me@nandan.com", IsAdmin = true},
-            new Designer(){Name = "Hadis", Email = "me@hadis.com", IsAdmin = false},
-            new Designer(){Name = "Ali", Email = "me@ali.com", IsAdmin = false}
+            new Designer(){Id= 1, Name = "Nandan", Email = "me@nandan.com", IsAdmin = true},
+            new Designer(){Id = 2, Name = "Hadis", Email = "me@hadis.com", IsAdmin = false},
+            new Designer(){Id = 3, Name = "Ali", Email = "me@ali.com", IsAdmin = false}
 
         };
 
