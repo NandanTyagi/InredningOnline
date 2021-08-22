@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/bd4b4b21-7aad-4c8e-b821-368fdea9d271/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/InredningOnline",
+  "appService.deploySubpath": "InredningOnline\\publish"
+}

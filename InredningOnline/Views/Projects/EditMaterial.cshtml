@@ -43,7 +43,7 @@
                 
             </form>
             <hr>
-            <div class="total">Total: @Model.GetTotalCost().ToString("c0")</div>
+            <div class="total">Total: @((@Model.Material.Price * @Model.Material.Amount).ToString("c0"))</div>
         </div>
 
 

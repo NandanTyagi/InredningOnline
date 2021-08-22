@@ -1,7 +1,7 @@
 using InredningOnline.Models;
 using InredningOnline.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-
+//Transaction ID: b36d81b8-e75c-4e63-9625-ebd5212e1a74
 namespace InredningOnline.Controllers
 {
     public class HomeController : Controller
